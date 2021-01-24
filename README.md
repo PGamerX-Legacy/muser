@@ -5,9 +5,9 @@
 
 #### Please Star this Repository as our goal is to reach 100 Stars!
 
-##Self-hosting
-###Self hosting is allowed but with suitable Credit!
-####Steps -
+## Self-hosting
+### Self hosting is allowed but with suitable Credit!
+#### Steps -
 1.Download the source code
 2.Change Name of example.env to .env and fill details
 3.Run `npm i` command
