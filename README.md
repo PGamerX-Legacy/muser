@@ -1,9 +1,10 @@
 # Black Sheep - Multifunctional Discord Bot <br /> 
-[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/U7U438GWF)
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/U7U438GWF).     
+
 [![Discord Bots](https://top.gg/api/widget/716985864512864328.svg)](https://top.gg/bot/716985864512864328). 
 <br />
 
-#### Please Star this Repository as our goal is to reach 100 Stars!
+### Please Star this Repository as our goal is to reach 100 Stars!
 
 ## Self-hosting
 ### Self hosting is allowed but with suitable Credit!
