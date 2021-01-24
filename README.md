@@ -100,3 +100,5 @@ In case you got a temporary fix to an issue but you know many others will face i
 * weather(city name) - Weather stats about specififc city
 
 
+## Contribution
+** Feel Free to contribute! It's really appricieated
