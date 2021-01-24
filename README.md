@@ -9,10 +9,10 @@
 ## Self-hosting
 ### Self hosting is allowed but with suitable Credit!
 #### Steps -
-1.Download the source code
-2.Change Name of example.env to .env and fill details
-3.Run `npm i` command
-4.Run `node .` command
+1.Download the source code.     
+2.Change Name of example.env to .env and fill details.     
+3.Run `npm i` command.     
+4.Run `node .` command.    
 
 ## 🔗 Important Links
 **[1. Invite Bot](https://top.gg/bot/716985864512864328/invite)**   
