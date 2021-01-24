@@ -101,4 +101,4 @@ In case you got a temporary fix to an issue but you know many others will face i
 
 
 ## Contribution
-** Feel Free to contribute! It's really appricieated
+**Feel Free to contribute! It's really appricieated**
