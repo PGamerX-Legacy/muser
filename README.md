@@ -1,4 +1,4 @@
-![Black Sheep](https://media.discordapp.net/attachments/743817386792058971/803156718707802122/New_Project_20.png?width=952&height=536)
+![Black Sheep](https://i.imgur.com/qVebW7k.png)
 <br />
 
 ## &#8627; Important Links
