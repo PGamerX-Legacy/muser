@@ -319,7 +319,7 @@ client.on('ready', () => {
 });
 const DBL = require("dblapi.js");
 const dbl = new DBL(
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjcxNjk4NTg2NDUxMjg2NDMyOCIsImJvdCI6dHJ1ZSwiaWF0IjoxNTk3MDM1MDQ2fQ.15HkoWQye70yGjQISDdHRnRSSyLGSZbjPhUfZr8OCXM",
+  "TOKEN",
   { webhookPort: 5000, webhookAuth: "bruhboomer" },
   bot
 );
