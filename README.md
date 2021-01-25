@@ -1,4 +1,3 @@
-# Black Sheep <br /> 
 ![Black Sheep](https://i.imgur.com/pcZ85uO.png)
 <br />
 
