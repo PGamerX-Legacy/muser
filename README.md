@@ -4,7 +4,7 @@
 [![Discord Bots](https://top.gg/api/widget/716985864512864328.svg)](https://top.gg/bot/716985864512864328) 
 <br />     
 
-[![People who starred](https://reporoster.com/stars/USERNAME/REPO_NAME)](https://github.com/pgamerxstudio/blacksheep/stargazers)      
+[![People who starred](https://reporoster.com/stars/pgamerxstudio/blacksheep)](https://github.com/pgamerxstudio/blacksheep/stargazers)      
 
 ### Please Star this Repository as our goal is to reach 100 Stars!
 
