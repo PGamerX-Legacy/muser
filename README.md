@@ -1,4 +1,5 @@
-![Black Sheep](https://images.discordapp.net/avatars/716985864512864328/6b384b48ecc16aa96544853b765a29ec.png?size=512)
+# Black Sheep 
+![Black Sheep](https://images.discordapp.net/avatars/716985864512864328/6b384b48ecc16aa96544853b765a29ec.png?size=200)
 <br />
 
 ## &#8627; Important Links
