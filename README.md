@@ -1,4 +1,4 @@
-![Black Sheep](https://i.imgur.com/4JCVDEk.png)
+#Black Sheep
 <br />
 
 ## &#8627; Important Links
