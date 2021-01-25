@@ -1,6 +1,5 @@
 # Black Sheep <br /> 
-<blockquote class="imgur-embed-pub" lang="en" data-id="a/ygztHoN"  ><a href="//imgur.com/a/ygztHoN">Black sheep</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
-<br />
+![Black Sheep](https://i.imgur.com/pcZ85uO.png)
 
 ### &#8627; Stargazers 
 [![People who starred](https://reporoster.com/stars/pgamerxstudio/blacksheep)](https://github.com/pgamerxstudio/blacksheep/stargazers)             
