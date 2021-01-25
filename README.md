@@ -1,11 +1,10 @@
 # Black Sheep - Multifunctional Discord Bot <br /> 
 
-[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/U7U438GWF)   
 ### &#8627; Stargazers 
 [![People who starred](https://reporoster.com/stars/pgamerxstudio/blacksheep)](https://github.com/pgamerxstudio/blacksheep/stargazers)             
-
-
-
+### &#8627; Donate.    
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/U7U438GWF)   
+### &#8627; Top.gg Page 
 [![Discord Bots](https://top.gg/api/widget/716985864512864328.svg)](https://top.gg/bot/716985864512864328) 
 <br />     
 
