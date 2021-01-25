@@ -1,4 +1,4 @@
-![Black Sheep](blob:https://imgur.com/5246a235-ee53-440a-a84b-adbcbb529f2f)
+![Black Sheep](https://i.imgur.com/4JCVDEk.png)
 <br />
 
 ## &#8627; Important Links
