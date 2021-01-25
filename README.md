@@ -2,7 +2,9 @@
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/U7U438GWF)     
 
 [![Discord Bots](https://top.gg/api/widget/716985864512864328.svg)](https://top.gg/bot/716985864512864328) 
-<br />
+<br />     
+
+[![People who starred](https://reporoster.com/stars/USERNAME/REPO_NAME)](https://github.com/pgamerxstudio/blacksheep/stargazers)      
 
 ### Please Star this Repository as our goal is to reach 100 Stars!
 
