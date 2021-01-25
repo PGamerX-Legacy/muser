@@ -1,13 +1,6 @@
 # Black Sheep <br /> 
 ![Black Sheep](https://i.imgur.com/pcZ85uO.png)
-
-### &#8627; Stargazers 
-[![People who starred](https://reporoster.com/stars/pgamerxstudio/blacksheep)](https://github.com/pgamerxstudio/blacksheep/stargazers)             
-### &#8627; Donate.    
-[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/U7U438GWF)   
-### &#8627; Top.gg Page 
-[![Discord Bots](https://top.gg/api/widget/716985864512864328.svg)](https://top.gg/bot/716985864512864328) 
-<br />     
+<br />
 
 ### &#8627; Self-hosting
 #### Self hosting is allowed but with suitable Credit!
@@ -105,3 +98,13 @@ In case you got a temporary fix to an issue but you know many others will face i
 
 ### &#8627; Contribution
 **Feel Free to contribute! It's really appreciated**
+<br />
+### &#8627; Supporters and More Info
+
+### &#8627; Stargazers 
+[![People who starred](https://reporoster.com/stars/pgamerxstudio/blacksheep)](https://github.com/pgamerxstudio/blacksheep/stargazers)             
+### &#8627; Donate.    
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/U7U438GWF)   
+### &#8627; Top.gg Page 
+[![Discord Bots](https://top.gg/api/widget/716985864512864328.svg)](https://top.gg/bot/716985864512864328) 
+<br />     
