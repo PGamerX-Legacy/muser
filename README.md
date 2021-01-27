@@ -29,4 +29,5 @@ npm install random-stuff-api
 ## Documentation
 All documentaion on [Here](https://pgamerx.bit.ai/docs/view/Rz3rb7748yS5qA0o)
 
-For support [Discord server](https://pgamerx.com/discord)
+## Support 
+[Discord server](https://pgamerx.com/discord)
