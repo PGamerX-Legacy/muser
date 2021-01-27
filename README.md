@@ -10,12 +10,12 @@
 <a href="https://www.npmjs.com/package/random-stuff-api">
 <img src="https://img.shields.io/npm/v/random-stuff-api?color=red&label=Version&logo=npm&style=for-the-badge" alt="Npm version">
 </a>
-<a href="https://github.com/pgamerxstudio/random-stuff-api">
-<img src="https://img.shields.io/github/stars/pgamerxstudio/random-stuff-api?color=333&logo=github&style=for-the-badge" alt="Github stars">
+<a href="https://github.com/pgamerxstudio/projects">
+<img src="https://img.shields.io/github/stars/pgamerxstudio/projects?color=333&logo=github&style=for-the-badge" alt="Github stars">
 </a>
 
-<a href="https://github.com/pgamerxstudio/random-stuff-api/blob/master/LICENSE">
-<img src="https://img.shields.io/github/license/pgamerxstudio/random-stuff-api?color=6e5494&logo=github&style=for-the-badge" alt="License">
+<a href="https://github.com/pgamerxstudio/projects/blob/master/LICENSE">
+<img src="https://img.shields.io/github/license/pgamerxstudio/projects?color=6e5494&logo=github&style=for-the-badge" alt="License">
 </a>
 
 ## Requirments
