@@ -4,6 +4,7 @@
 </a>
 
 ## This api is a wrapper for https://api.pgamerx.com
+#### That api isn't documented yet but it's some of the functions can be found at https://api.pgamerx.com/image/endpoints. There are some other functions as well but they aren't documented 
 <a href="https://www.npmjs.com/package/random-stuff-api">
 <img src="https://img.shields.io/npm/dt/random-stuff-api?color=CC3534&logo=npm&style=for-the-badge" alt="Downloads">
 </a>
