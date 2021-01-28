@@ -3,8 +3,6 @@
 <img src="https://img.shields.io/discord/690557545965813770?color=7289DA&label=Support&logo=discord&style=for-the-badge" alt="Discord">
 </a>
 
-## This api is a wrapper for https://api.pgamerx.com
-#### That api isn't documented yet but it's some of the functions can be found at https://api.pgamerx.com/image/endpoints. There are some other functions as well but they aren't documented 
 <a href="https://www.npmjs.com/package/random-stuff-api">
 <img src="https://img.shields.io/npm/dt/random-stuff-api?color=CC3534&logo=npm&style=for-the-badge" alt="Downloads">
 </a>
@@ -33,3 +31,7 @@ All documentaion on [Here](https://pgamerx.bit.ai/docs/view/Rz3rb7748yS5qA0o)
 
 ## Support 
 [Discord server](https://pgamerx.com/discord)
+
+
+## This api is a wrapper for https://api.pgamerx.com
+### That api isn't documented yet but it's some of the functions can be found at https://api.pgamerx.com/image/endpoints. There are some other functions as well but they aren't documented 
