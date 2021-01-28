@@ -1,0 +1,45 @@
+{
+  "name": "random-stuff-api",
+  "version": "10.0.0",
+  "description": "AI Chatbot, random-responses like memes,dankmemes,jokes,devjokes and much more!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "alexa-reply-api": "^1.0.1",
+    "awesome-dev-jokes": "^1.0.3",
+    "discord-jokes": "^3.0.0",
+    "insult": "0.0.3",
+    "node-fetch": "^2.6.1",
+    "random-puppy": "^1.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PGamerXstudio/projects.git"
+  },
+  "bugs": {
+    "url": "https://github.com/PGamerXstudio/projects/tree/api/issues"
+  },
+  "homepage": "https://pgamerx.bit.ai/docs/view/Rz3rb7748yS5qA0o",
+  "keywords": [
+    "random",
+    "stuff",
+    "api",
+    "pgamerx",
+    "meme",
+    "chuckjoke",
+    "cnjoke",
+    "devjoke",
+    "discord-joke",
+    "discord-jokes",
+    "random image",
+    "random stuff api",
+    "random image generator",
+    "discord",
+    "random joke",
+    "insult"
+  ]
+}
