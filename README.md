@@ -1,4 +1,4 @@
-# Random-stuff-api
+# random-stuff-api@10.0.0
 <a href="https://discord.gg/y94PA8d">
 <img src="https://img.shields.io/discord/690557545965813770?color=7289DA&label=Support&logo=discord&style=for-the-badge" alt="Discord">
 </a>
@@ -32,6 +32,6 @@ All documentaion on [Here](https://pgamerx.bit.ai/docs/view/Rz3rb7748yS5qA0o)
 ## Support 
 [Discord server](https://pgamerx.com/discord)
 
-
-## This api is a wrapper for [This api](https://api.pgamerx.com)
-### That api isn't documented yet but it's some of the functions can be found at [Here](https://api.pgamerx.com/image/endpoints). There are some other functions as well but they aren't documented 
+## This is a wrapper
+This is a wrapper for an api which is made by [PGamerX](https://pgamerx.com) but is not fully documented! It has a lot of features but they aren't written anywhere
+Some of the features are [written here](https://api.pgamerx.com/image/endpoints)
