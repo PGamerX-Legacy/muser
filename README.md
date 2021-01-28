@@ -33,5 +33,5 @@ All documentaion on [Here](https://pgamerx.bit.ai/docs/view/Rz3rb7748yS5qA0o)
 [Discord server](https://pgamerx.com/discord)
 
 
-## This api is a wrapper for https://api.pgamerx.com
-### That api isn't documented yet but it's some of the functions can be found at https://api.pgamerx.com/image/endpoints. There are some other functions as well but they aren't documented 
+## This api is a wrapper for [This api](https://api.pgamerx.com)
+### That api isn't documented yet but it's some of the functions can be found at [Here](https://api.pgamerx.com/image/endpoints). There are some other functions as well but they aren't documented 
