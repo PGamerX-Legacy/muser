@@ -1,12 +1,15 @@
-# Welcome to Our Github Repo!
-Here you will find all open-source projects of ours in different branches!
+# random-stuff-api
+* Random-stuff-api is an api made by [PGamerX](https://pgamerx.com).
+  * The api can do basically anything
 
-* random-stuff-api 
-  * Random-stuff-api is an api that can basically do everything you can imagine!
-  * Head over to [api branch](https://github.com/pgamerxstudio/projects/tree/api-wrapper)        
-  
-* Black sheep
-  * Black sheep is a multifunctional discord bot which is in over 1.4k+ servers
-  * Head over to [black-sheep branch](https://github.com/pgamerxstudio/projects/tree/black-sheep)
-  
-f
+## Endpoints 
+Endpoints can be found [at here](https://api.pgamerx.com/endpoints)
+
+## Wrappers
+Feel free to make a wrapper for our API as it's really appriciated 
+
+## Existing Wrappers
+* random-stuff-api@10.0.0
+  * It's the best wrapper for our api for nodejs!
+  * It's [Github Repo](https://github.com/pgamerxstudio/projects/tree/api-wrapper)
+  * It's [NPM Package](https://npmjs.org/random-stuff-api)
