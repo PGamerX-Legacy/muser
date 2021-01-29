@@ -15,7 +15,7 @@ Feel free to make a wrapper for our API as it's really appriciated
   * It's [pip page](https://pypi.org/project/prsaw)
   
 * random-stuff-api@10.0.0
-  * It's the best wrapper for our api for nodejs!
+  * It's the wrapper for our api for nodejs by [PGamerX](https://github.com/pgamerxdev)
   * It's [Github Repo](https://github.com/pgamerxstudio/projects/tree/api-wrapper)
   * It's [NPM Package](https://npmjs.org/random-stuff-api)
   
