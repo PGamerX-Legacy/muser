@@ -2,6 +2,10 @@
 * Random-stuff-api is an api made by [PGamerX](https://pgamerx.com).
   * The api can do basically anything
 
+## Demo
+Go and Get a demo at [This website](https://chat.pgamerx.com)            
+Note: you can even download this PWA on your mobile
+
 ## Endpoints 
 Endpoints can be found [at here](https://api.pgamerx.com/endpoints)
 
