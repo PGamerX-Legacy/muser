@@ -2,7 +2,7 @@
 * Random-stuff-api is an api made by [PGamerX](https://pgamerx.com).
   * The api can do basically anything
 
-## Demo
+## AI Demo
 Go and Get a demo at [This website](https://chat.pgamerx.com)            
 Note: you can even download this PWA on your mobile
 
