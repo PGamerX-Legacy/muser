@@ -6,6 +6,9 @@
 Go and Get a demo at [This website](https://chat.pgamerx.com)            
 Note: you can even download this PWA on your mobile
 
+## Ratelimits
+There is a global rate limit of 120 requests per minute on all the endpoints per IP, For an increased rate limit contact us in [Discord Server](https://pgamerx.com/discord)
+
 ## Endpoints 
 Endpoints can be found [at here](https://api.pgamerx.com/endpoints)
 
