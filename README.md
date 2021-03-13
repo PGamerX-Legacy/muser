@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://pgamerx.com/assets/images/depositphotos-127968458-stock-illustration-p-letter-colorful-logo-flat-1.jpg" width="200" height="200" />
+<img src="https://i.imgur.com/EomM4ty.png" width="200" height="200" />
 </p>
 
 
