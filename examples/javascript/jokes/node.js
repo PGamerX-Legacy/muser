@@ -1,7 +1,7 @@
 const fetch = require('node-fetch');
 // Use node-fetch as the package
 
-let res = await fetch('https://api.pgamerx.com/joke/any?api_key=something")
+let res = await fetch("https://api.pgamerx.com/joke/any?api_key=something")
 // Fetch The API
            
 let json = await res.json()
