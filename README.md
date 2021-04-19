@@ -6,6 +6,10 @@
 Go and Get a demo at [This website](https://chat.pgamerx.com)            
 Note: you can even download this PWA on your mobile
 
+## Special Thanks
+Thanks Nithish#6593 for re-writing the AI module.     
+Without him, the AI would have never returned
+
 ## Ratelimits
 There is a global rate limit of 120 requests per minute on all the endpoints per IP.            
 In future, we will be offering increased limits for small amount of money (such as $0.50/month)                 
