@@ -6,14 +6,10 @@
 Go and Get a demo at [This website](https://chat.pgamerx.com)            
 Note: you can even download this PWA on your mobile
 
-## Special Thanks
-Thanks Nithish#6593 for re-writing the AI module.     
-Without him, the AI would have never returned
 
 ## Ratelimits
-There is a global rate limit of 120 requests per minute on all the endpoints per IP.            
-In future, we will be offering increased limits for small amount of money (such as $0.50/month)                 
-Join our [Support Server](https://pgamerx.com.discord) for updates
+Rate limits are listed on endpoints page [Here](https://api.pgamerx.com/endpoints)                    
+Join our [Support Server](https://pgamerx.com.discord) for purchasing
 
 ## Endpoints 
 Endpoints can be found [at here](https://api.pgamerx.com/endpoints)
@@ -32,3 +28,6 @@ Feel free to make a wrapper for our API as it's really appriciated
   * It's [Github Repo](https://github.com/pgamerxstudio/projects/tree/api-wrapper)
   * It's [NPM Package](https://npmjs.org/random-stuff-api)
   
+## Special Thanks
+Thanks Nithish#6593 for re-writing the AI module.     
+Without him, the AI would have never returned
