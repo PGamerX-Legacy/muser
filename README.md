@@ -28,6 +28,3 @@ Feel free to make a wrapper for our API as it's really appriciated
   * It's [Github Repo](https://github.com/pgamerxstudio/projects/tree/api-wrapper)
   * It's [NPM Package](https://npmjs.org/random-stuff-api)
   
-## Special Thanks
-Thanks Nithish#6593 for re-writing the AI module.     
-Without him, the AI would have never returned
