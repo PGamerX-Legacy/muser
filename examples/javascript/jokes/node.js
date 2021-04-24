@@ -1,14 +1,7 @@
-const fetch = require('node-fetch');
-// Use node-fetch as the package
+let stuff =  require("random-stuff-api")
+let rsa = new stuff({
+    key: "api_key" // Optional 
+})
 
-let res = await fetch("https://api.pgamerx.com/joke/any?api_key=something")
-// Fetch The API
-           
-let json = await res.json()
-// Convert it into JSON
-
-let joke = json[0]
-// Get joke as variable
-
-console.log(joke)
-// Log The joke
+let response = await rsa.joke(type)
+// Refer to https://api.pgamerx.com/endpoints for types
