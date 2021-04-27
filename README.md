@@ -11,8 +11,8 @@ Note: you can even download this PWA on your mobile
 Rate limits are listed on endpoints page [Here](https://api.pgamerx.com/endpoints)                    
 Join our [Support Server](https://pgamerx.com.discord) for purchasing
 
-## Endpoints 
-Endpoints can be found [at here](https://api.pgamerx.com/endpoints)
+## Version 3 - Endpoints 
+Endpoints can be found [at here](https://api.pgamerx.com/v3/docs)
 
 ## Wrappers
 Feel free to make a wrapper for our API as it's really appriciated 
