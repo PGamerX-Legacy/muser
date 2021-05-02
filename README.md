@@ -34,11 +34,11 @@ Feel free to make a wrapper for our API as it's really appriciated
  
   
 # &#8627; Other Products 
-#### &#8627; random-stuff-api(wrapper) 
+### &#8627; random-stuff-api(wrapper) 
   * Random-stuff-api is an api wrapper for [this api](https://api.pgamerx.com/)
   * Head over to [wrapper branch](https://github.com/pgamerxdev/projects/tree/api-wrapper)        
    
-#### &#8627; Black sheep
+### &#8627; Black sheep
   * Black sheep is a multifunctional discord bot which is in over 1.4k+ servers
   * Head over to [black-sheep branch](https://github.com/pgamerxdev/projects/tree/black-sheep)
   
