@@ -3,28 +3,28 @@
 </p>
 
 
-# &#8627; random-stuff-api 
+# random-stuff-api 
 * Random-stuff-api is an api made by [PGamerX](https://pgamerx.com).
   * The api can do basically anything
 
-## AI Demo
+## &#8627; AI Demo
 Go and Get a demo at [This website](https://chat.pgamerx.com)            
 Note: you can even download this PWA on your mobile
 
-## Examples
+## &#8627; Examples
 Get examples [here](https://github.com/pgamerxdev/projects/tree/api/examples)
 
-## Ratelimits
+## &#8627; Ratelimits
 Rate limits are listed on endpoints page [Here](https://api.pgamerx.com/endpoints) (This is also the documentation for Version 2.x)                   
 Join our [Support Server](https://pgamerx.com/discord) for purchasing
 
-## Version 3 - Documentation 
+## &#8627; Version 3 - Documentation 
 Documentation can be found [here](https://api.pgamerx.com/v3/docs)
 
-## Wrappers
+## &#8627; Wrappers
 Feel free to make a wrapper for our API as it's really appriciated 
 
-## Existing Recommended Wrappers
+## &#8627; Existing Recommended Wrappers
 * prsaw
   * It's a python wrapper for our api made by [Swas.py](https://github.com/codewithswastik)
   * Its [Github Repo](https://github.com/CodeWithSwastik/prsaw)
@@ -35,11 +35,14 @@ Feel free to make a wrapper for our API as it's really appriciated
   * Its [Github Repo](https://github.com/pgamerxdev/projects/tree/api-wrapper)
   * Its [NPM Package](https://npmjs.org/random-stuff-api)
  
-## Source Code
+## &#8627; Source Code
 Get Source code [here](https://github.com/pgamerxdev/projects/tree/api)
   
 </br>
 </br>
+
+
+
 # &#8627; Other Products 
 ### &#8627; random-stuff-api(wrapper) 
   * Random-stuff-api is an api wrapper for [this api](https://api.pgamerx.com/)
