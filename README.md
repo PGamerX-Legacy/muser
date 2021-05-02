@@ -3,26 +3,23 @@
 </p>
 
 
-# random-stuff-api 
+# RSA Version 3.x
 * Random-stuff-api is an api made by [PGamerX](https://pgamerx.com).
   * The api can do basically anything
 
-## &#8627; AI Demo
+## AI Demo
 Go and Get a demo at [This website](https://chat.pgamerx.com)            
 Note: you can even download this PWA on your mobile
 
-## &#8627; Examples (VERSION 2 - DEPRECATING SOON)
-Get examples [here](https://github.com/pgamerxdev/projects/tree/api/examples)
-
-## &#8627; Ratelimits
-Rate limits are listed on endpoints page [Here](https://api.pgamerx.com/endpoints) (This is also the documentation for VERSION 2 - DEPRECATING SOON)                   
-## &#8627; Version 3 - Documentation 
+## Version 3 - Documentation 
 Documentation can be found [here](https://api.pgamerx.com/v3/docs)
 
-## &#8627; Wrappers
-Feel free to make a wrapper for our API as it's really appriciated 
+## Wrappers
+Feel free to make a wrapper for our API as it's really appriciated.
 
-## &#8627; Existing Recommended Wrappers
+## Ratelimits
+Rate limits are listed on endpoints page [Here](https://api.pgamerx.com/endpoints) (This is also the documentation for VERSION 2 - DEPRECATING SOON)                   
+## Existing Recommended Wrappers
 * prsaw
   * It's a python wrapper for our api made by [Swas.py](https://github.com/codewithswastik)
   * Its [Github Repo](https://github.com/CodeWithSwastik/prsaw)
@@ -33,13 +30,24 @@ Feel free to make a wrapper for our API as it's really appriciated
   * Its [Github Repo](https://github.com/pgamerxdev/projects/tree/api-wrapper)
   * Its [NPM Package](https://npmjs.org/random-stuff-api)
  
-## &#8627; Source Code
+## Source Code
 Get Source code [here](https://github.com/pgamerxdev/projects/tree/api)
   
 </br>
 </br>
 
 
+
+  
+## &#8627; Supporters
+
+#### &#8627; Stargazers 
+[![People who starred](https://reporoster.com/stars/pgamerxdev/projects)](https://github.com/pgamerxdev/projects/stargazers)      
+#### &#8627; Forkers 
+[![People who Forked](https://reporoster.com/forks/pgamerxdev/projects)](https://github.com/pgamerxdev/projects/)     
+#### &#8627; Donate.    
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/U7U438GWF)   
+<br />     
 
 # &#8627; Other Products 
 ### &#8627; random-stuff-api(wrapper) 
@@ -50,17 +58,6 @@ Get Source code [here](https://github.com/pgamerxdev/projects/tree/api)
   * Black sheep is a multifunctional discord bot which is in over 1.4k+ servers
   * Head over to [black-sheep branch](https://github.com/pgamerxdev/projects/tree/black-sheep)
   
-  
-  ## &#8627; Supporters
-
-#### &#8627; Stargazers 
-[![People who starred](https://reporoster.com/stars/pgamerxdev/projects)](https://github.com/pgamerxdev/projects/stargazers)      
-#### &#8627; Forkers 
-[![People who Forked](https://reporoster.com/forks/pgamerxdev/projects)](https://github.com/pgamerxdev/projects/)     
-#### &#8627; Donate.    
-[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/U7U438GWF)   
-<br />     
-
 
 ## &#8627; Contribution
 **Feel Free to contribute! It's really appreciated**
