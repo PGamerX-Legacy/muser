@@ -11,13 +11,11 @@
 Go and Get a demo at [This website](https://chat.pgamerx.com)            
 Note: you can even download this PWA on your mobile
 
-## &#8627; Examples
+## &#8627; Examples (VERSION 2 - DEPRECATING SOON)
 Get examples [here](https://github.com/pgamerxdev/projects/tree/api/examples)
 
 ## &#8627; Ratelimits
-Rate limits are listed on endpoints page [Here](https://api.pgamerx.com/endpoints) (This is also the documentation for Version 2.x)                   
-Join our [Support Server](https://pgamerx.com/discord) for purchasing
-
+Rate limits are listed on endpoints page [Here](https://api.pgamerx.com/endpoints) (This is also the documentation for VERSION 2 - DEPRECATING SOON)                   
 ## &#8627; Version 3 - Documentation 
 Documentation can be found [here](https://api.pgamerx.com/v3/docs)
 
