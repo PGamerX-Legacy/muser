@@ -11,6 +11,9 @@
 Go and Get a demo at [This website](https://chat.pgamerx.com)            
 Note: you can even download this PWA on your mobile
 
+## Examples
+Get examples [here](https://github.com/pgamerxdev/projects/tree/api/examples)
+
 ## Ratelimits
 Rate limits are listed on endpoints page [Here](https://api.pgamerx.com/endpoints) (This is also the documentation for Version 2.x)                   
 Join our [Support Server](https://pgamerx.com/discord) for purchasing
@@ -32,7 +35,11 @@ Feel free to make a wrapper for our API as it's really appriciated
   * Its [Github Repo](https://github.com/pgamerxdev/projects/tree/api-wrapper)
   * Its [NPM Package](https://npmjs.org/random-stuff-api)
  
+## Source Code
+Get Source code [here](https://github.com/pgamerxdev/projects/tree/api)
   
+</br>
+</br>
 # &#8627; Other Products 
 ### &#8627; random-stuff-api(wrapper) 
   * Random-stuff-api is an api wrapper for [this api](https://api.pgamerx.com/)
