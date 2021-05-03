@@ -3,42 +3,40 @@
 </p>
 
 
-# RSA Version 3.x
+# RSA
 * Random-stuff-api is an api made by [PGamerX](https://pgamerx.com).
-  * The api can do basically anything
-
-## AI Demo
-Go and Get a demo at [This website](https://chat.pgamerx.com)            
-Note: you can even download this PWA on your mobile
-
-## Version 3 - Documentation 
-Documentation can be found [here](https://api.pgamerx.com/v3/docs)
-
-## Wrappers
-Feel free to make a wrapper for our API as it's really appriciated.
-
-## Ratelimits
-Rate limits are listed on endpoints page [Here](https://api.pgamerx.com/endpoints) (This is also the documentation for VERSION 2 - DEPRECATING SOON)                   
-## Existing Recommended Wrappers
-* prsaw
-  * It's a python wrapper for our api made by [Swas.py](https://github.com/codewithswastik)
-  * Its [Github Repo](https://github.com/CodeWithSwastik/prsaw)
-  * Its [PyPi page](https://pypi.org/project/prsaw)
-  
-* random-stuff-api
-  * It's a nodejs wrapper for our api made by [PGamerX](https://github.com/pgamerxdev)
-  * Its [Github Repo](https://github.com/pgamerxdev/projects/tree/api-wrapper)
-  * Its [NPM Package](https://npmjs.org/random-stuff-api)
  
-## Source Code
+## Documentation 
+### Version 3 - Documentation 
+Documentation can be found [here](https://docs.pgamerx.com/version-3)
+
+### Version 2 - Documentation 
+Documentation can be found [here](https://api-info.pgamerx.com/version2.html)
+
+
+## Important Links
+#### Rate Limits
+Ratelimits can be found [Here](https://docs.pgamerx.com/rate-limits)
+
+#### Register an api key
+Register an api key at [Here](https://api.pgamerx.com/register)
+
+#### Donate
+Donate [Here](https://ko-fi.com/pgamerx)
+
+#### Support 
+Get Support [Here](https://u.pgamerx.com/discord)
+
+#### Affilated Hosting
+Find the best hosting [Here](https://u.pgamerx.com/sponsor)
+
+#### Source Code
 Get Source code [here](https://github.com/pgamerxdev/projects/tree/api)
   
 </br>
 </br>
 
 
-
-  
 ## &#8627; Supporters
 
 #### &#8627; Stargazers 
