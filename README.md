@@ -36,10 +36,10 @@ Find the best hosting [Here](https://u.pgamerx.com/sponsor)
 
 # &#8627; Other Products
 ### Black Sheep
-* It's a Discord bot, for more info [https://github.com/pgamerxdev/projects/tree/black-sheep]
+* It's a Discord bot, for more info [Click here](https://github.com/pgamerxdev/projects/tree/black-sheep)
 
 ### RSA Wrapper
-* It's a Wrapper for my api, for more info [https://github.com/pgamerxdev/projects/tree/api-wrapper]
+* It's a Wrapper for my api, for more info [Click here](https://github.com/pgamerxdev/projects/tree/api-wrapper)
 
 
 
