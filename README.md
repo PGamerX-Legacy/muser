@@ -5,10 +5,7 @@
 
 # RSA
 * Random-stuff-api is an api made by [PGamerX](https://pgamerx.com).
- 
-## &#8627; Documentation 
-#### Version 3 - Documentation 
-Documentation can be found [here](https://docs.pgamerx.com/version-3)
+* Head over to [API Brank](https://github.com/pgamerxdev/projects/tree/api)
 
 # Black Sheep
 * It's a Discord bot, for more info [Click here](https://github.com/pgamerxdev/projects/tree/black-sheep)
