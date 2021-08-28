@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://i.imgur.com/EomM4ty.png" width="200" height="200" />
+<img src="https://pgamerx.com/assets/images/unnamed.jpeg" width="200" height="200" />
 </p>
 
 
