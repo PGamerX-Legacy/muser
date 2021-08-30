@@ -4,6 +4,12 @@
 * [Changelog](changelog.md)
 * [Rate Limits](rate-limits.md)
 
+# Version 5 (LATEST)
+---
+###   New
+* Get weather 
+* Get covid
+
 ## Version 3 \(LATEST\) <a id="version-3"></a>
 
 * [Get Images](version-3/get-images.md)
