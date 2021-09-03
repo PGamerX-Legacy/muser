@@ -18,7 +18,7 @@
 [![People who starred](https://reporoster.com/stars/pgamerxdev/projects)](https://github.com/pgamerxdev/projects/stargazers)      
 #### Forkers 
 [![People who Forked](https://reporoster.com/forks/pgamerxdev/projects)](https://github.com/pgamerxdev/projects/)     
-#### Donate.    
+#### Donate    
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/U7U438GWF)   
 <br />     
 
