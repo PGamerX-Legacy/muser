@@ -22,6 +22,7 @@ const client = new Client({
 
 const { AutoPoster } = require("topgg-autoposter");
 const Topgg = require("@top-gg/sdk");
+require('dotenv').config()
 const ap = AutoPoster(
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijc2MzQxODI4OTY4OTk4NTAzNSIsImJvdCI6dHJ1ZSwiaWF0IjoxNjA3Mzg4MjkwfQ._Afp-QSByh9LTyMtM7uvDShVNZR4DcXsdk7EUZxQADc",
   client
@@ -133,7 +134,7 @@ client.on("voiceStateUpdate", async (oldState, newState) => {
           const embed = new Discord.MessageEmbed()
             .setTitle(`Channel empty`)
             .setDescription(
-              `If you have premium, then I won't leave the VC, but if you don't then I will because noone is there in the VC. [Check out Premium](https://muser.pgamerx.com/premium)`
+              `If you have premium, then I won't leave the VC, but if you don't then I will because no one is there in the VC. [Check out Premium](https://muser.pgamerx.com/premium)`
             )
             .setColor("RED");
           await channel.send({ embeds: [embed] });
@@ -220,7 +221,7 @@ client.on("messageCreate", async (message) => {
       .setTitle(`Only usable through Slash commands`)
       .setDescription(
         `
-Hey there, I have just been completely renovated to be compaitable with slash commands.
+Hey there, I have just been completely renovated to be compatible with slash commands.
 
 > Cannot see my slash commands? or getting \`Invalid interaction\`?
 Please ask the Admin Team/Manager team or Owner of this server to re-invite me using [This Link](https://discord.com/oauth2/authorize?client_id=763418289689985035&scope=+applications.commands+bot&permissions=37084480) so I can get permission to create slash commands in this server.
@@ -353,7 +354,7 @@ Volume : ${queue.volume}`
     const embed = new Discord.MessageEmbed()
       .setTitle(`Channel empty`)
       .setDescription(
-        `If you have premium, then I won't leave the VC, but if you don't then I will because noone is there in the VC. [Check out Premium](https://muser.pgamerx.com/premium)`
+        `If you have premium, then I won't leave the VC, but if you don't then I will because no one is there in the VC. [Check out Premium](https://muser.pgamerx.com/premium)`
       )
       .setColor("RED");
 

@@ -6,7 +6,7 @@ module.exports = {
         .setDescription('Seek to a specific point in the video')
         .addStringOption(option =>
             option.setName('timestamp')
-                .setDescription("Please Provide timestap you want to skip to")
+                .setDescription("Please Provide timestamp you want to skip to")
                 .setRequired(true))
                     ,
 	async execute(interaction) {

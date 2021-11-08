@@ -1,3 +1,5 @@
+// noinspection DuplicatedCode
+
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const db = require('quick.db')
 module.exports = {
