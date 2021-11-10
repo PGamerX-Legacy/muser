@@ -8,8 +8,9 @@ module.exports = {
 		.setName('ping')
 		.setDescription('Replies with current ping of the bot'),
 	async execute(interaction) {
-		let ping = Date.now() - interaction.createdTimestamp
-		await interaction.reply({content: `🏓Latency is ${ping}ms.`});
+		const sent = await interaction.reply({ content: 'Pinging...', fetchReply: true, ephemeral: false});
+		interaction.editReply({ content: `Roundtrip latency: ${sent.createdTimestamp - interaction.createdTimestamp}ms`, ephemeral: true });
+		let ping = sent.createdTimestamp - interaction.createdTimestamp;
 		monitor.ping({
 			state: 'ok',
 			message: `Ping = ${ping}`,

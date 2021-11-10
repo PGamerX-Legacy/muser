@@ -385,12 +385,12 @@ client.on("interactionCreate", async (interaction) => {
 			monitor.ping({message: `Interaction name: ${interaction.commandName}  \n Requested by: ${interaction.member} \n Requested in guild: ${interaction.guildId}`,
 				state: 'run'});
 			await client.scommands.get(interaction.commandName).execute(interaction);
-			intr = JSON.stringify(interaction)
+			let intr = JSON.stringify(interaction)
 			monitor.ping({message: `Interaction successful: ${interaction.commandName}  \n Requested by: ${interaction.member} \n Raw JSON: ${intr}`,
 				state: 'complete'});
-
 		} catch (error) {
 			console.error(error);
+			let intr = JSON.stringify(interaction)
 			monitor.ping({message: `Interaction ${interaction.commandName} failed \n Error: ${error} \n Raw JSON: ${intr}`,
 				state: 'fail'});
 		}
