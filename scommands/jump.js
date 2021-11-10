@@ -33,7 +33,7 @@ module.exports = {
         await distube.jump(queue, parseInt(number)).catch(async (err) => {
             await interaction.reply(`Invalid song position`)
             console.log(err)
-            return
+
         })
 
 

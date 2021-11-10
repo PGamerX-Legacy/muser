@@ -1,10 +1,11 @@
+// noinspection DuplicatedCode
 /*/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 									Importing packages and credentials
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 const process = require('dotenv').config(); const fs = require("fs"); const db = require("quick.db"); const Discord = require("discord.js");
-let token = process.env.BOTOKEN; let topGGToken = process.env.TOPGG_TOKEN; let topGGAuth = process.env.TOPGG_AUTH;
+let token = process.env.BOTOKEN; let topGGToken = process.env.TOPGG_TOKEN; let topGGAuth = process.env.TOPGG_AUTH; let dbURI = process.env.DBURI;
 const express = require("express"); let timeouts = new Map();const {AutoPoster} = require("topgg-autoposter"); const {SoundCloudPlugin} = require("@distube/soundcloud");
-const Topgg = require("@top-gg/sdk"); const ap = AutoPoster(topGGToken, client); const app = express(); const webhook = new Topgg.Webhook(topGGAuth);
+const Topgg = require("@top-gg/sdk");  const app = express(); const webhook = new Topgg.Webhook(topGGAuth);
 /*/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 									All the ugly constants related to DJS
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
@@ -28,6 +29,7 @@ const client = new Client({
 		Intents.FLAGS.GUILD_VOICE_STATES,
 	],
 });
+const ap = AutoPoster(topGGToken, client);
 /*/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 									The code that makes voting work
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
@@ -66,7 +68,6 @@ app.post(
 				embeds: [thanks2]
 			});
 		});
-
 		client.channels.fetch("783581253001150494").then(async (channel) => {
 			let user_info = await client.users.fetch(vote.user);
 			let embed = new Discord.MessageEmbed()
@@ -83,7 +84,6 @@ app.post(
 		});
 	})
 );
-
 ap.on("posted", () => {
 	console.log("Posted stats to Top.gg!");
 });
@@ -94,19 +94,14 @@ client.scommands = new Collection();
 const commandFiles = fs
 	.readdirSync("./scommands")
 	.filter((file) => file.endsWith(".js"));
-
 for (const file of commandFiles) {
 	const command = require(`./scommands/${file}`);
 	client.scommands.set(command.data.name, command);
 }
-
-const {
-	DisTube
-} = require("distube");
-const {
-	SpotifyPlugin
-} = require("@distube/spotify");
-
+/*/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+												DisTube stuff
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+const {DisTube} = require("distube"); const {SpotifyPlugin} = require("@distube/spotify");
 const distube = new DisTube(client, {
 	searchSongs: 10,
 	emitNewSongOnly: true,
@@ -116,7 +111,6 @@ const distube = new DisTube(client, {
 });
 client.distube = distube;
 client.premium_distube = client.distube;
-
 client.on("voiceStateUpdate", async (oldState, newState) => {
 	const queue = await client.distube.getQueue(oldState);
 	if (!queue) return;
@@ -128,7 +122,6 @@ client.on("voiceStateUpdate", async (oldState, newState) => {
 		newState.channel
 	)
 		return;
-
 	if (oldState.channel.members.size > 1) {
 		if (timeouts.get(oldState.guild.id)) {
 			clearTimeout(timeouts.get(oldState.guild.id));
@@ -174,12 +167,14 @@ client.on('voiceStateUpdate',  async (oldState, newState) => {
 */
 const mongoose = require("mongoose");
 mongoose.connect(
-	"mongodb+srv://muser:muser@cluster0.shgav.mongodb.net/prefix?retryWrites=true&w=majority", {
+	dbURI, {
 		useNewUrlParser: true,
 		useUnifiedTopology: true,
 	}
 );
-
+/*/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+											Startup function
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 client.once("ready", () => {
 	client.user.setPresence({
 		activities: [{
@@ -196,7 +191,9 @@ client.once("ready", () => {
 		});
 	}, 1800000);
 });
-
+/*/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+									When the bot discovers a new message
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 client.on("messageCreate", async (message) => {
 	if (message.content.startsWith(".eval")) {
 		const owners_id = ["587663056046391302"];

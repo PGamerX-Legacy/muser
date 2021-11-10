@@ -27,7 +27,7 @@ module.exports = {
         await distube.setVolume(queue,volume)
         }else{
             await interaction.reply(`Volume has to be between 1 and 100`)
-            return
+
         }
         
 	},
