@@ -2,7 +2,7 @@ const { SlashCommandBuilder } = require('@discordjs/builders');
 const db = require("quick.db")
 require("dotenv").config();
 const cronitor = require('cronitor')(process.env.CRONITORID);
-const monitor = new cronitor.Monitor('museg');
+const monitor = new cronitor.Monitor('Muser');
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('ping')
