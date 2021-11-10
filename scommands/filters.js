@@ -9,11 +9,7 @@ async function isVoter(user_id) {
     if (!userdetail) {
       return false;
     } else if (userdetail) {
-      if (userdetail.voter !== "yes") {
-        return false;
-      } else {
-        return true;
-      }
+      return userdetail.voter === "yes";
     }
   }
 }
