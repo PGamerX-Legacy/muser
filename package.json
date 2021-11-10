@@ -15,6 +15,7 @@
     "@distube/soundcloud": "^0.2.2",
     "@distube/spotify": "^0.6.3",
     "@top-gg/sdk": "^3.1.2",
+    "cronitor": "^2.2.3",
     "dblapi.js": "^2.4.1",
     "discord.js": "^13.1.0-dev.1628640678.0266f28",
     "discord.js-collector": "^1.8.9",

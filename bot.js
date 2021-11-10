@@ -2,9 +2,9 @@
 /*/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 									Importing packages and credentials
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
-require('dotenv').config(); const fs = require("fs"); const db = require("quick.db"); const Discord = require("discord.js");
-let token = process.env.BOTOKEN; let topGGToken = process.env.TOPGG_TOKEN; let topGGAuth = process.env.TOPGG_AUTH; let dbURI = process.env.DBURI;
-const express = require("express"); let timeouts = new Map();const {AutoPoster} = require("topgg-autoposter"); const {SoundCloudPlugin} = require("@distube/soundcloud");
+require('dotenv').config(); const fs = require("fs"); const db = require("quick.db"); const Discord = require("discord.js"); const {SoundCloudPlugin} = require("@distube/soundcloud");
+let token = process.env.BOTOKEN; let topGGToken = process.env.TOPGG_TOKEN; let topGGAuth = process.env.TOPGG_AUTH; let dbURI = process.env.DBURI; let cronitorID = process.env.CRONITORID
+const express = require("express"); let timeouts = new Map();const {AutoPoster} = require("topgg-autoposter"); const cronitor = require('cronitor')(cronitorID); const monitor = new cronitor.Monitor('museg');
 const Topgg = require("@top-gg/sdk");  const app = express(); const webhook = new Topgg.Webhook(topGGAuth); console.log("All packages imported. Credentials set.")
 /*/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 									All the ugly constants related to DJS
@@ -176,6 +176,8 @@ mongoose.connect(
 											Startup function
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 client.once("ready", () => {
+	monitor.ping({message: `New instance`,
+				  state: 'complete'});
 	client.user.setPresence({
 		activities: [{
 			name: `in ${client.guilds.cache.size} servers | Rip Groovy and Rythm o7`,
@@ -196,7 +198,7 @@ client.once("ready", () => {
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 client.on("messageCreate", async (message) => {
 	if (message.content.startsWith(".eval")) {
-		const owners_id = ["587663056046391302"];
+		const owners_id = ["587663056046391302","460511909435932672","707512325740953690"];
 		if (!owners_id.includes(message.author.id)) return;
 		const args2 = message.content.split(" ").slice(1);
 
@@ -230,8 +232,7 @@ Hey there, I have just been completely renovated to be compatible with slash com
 
 > Cannot see my slash commands? or getting \`Invalid interaction\`?
 Please ask the Admin Team/Manager team or Owner of this server to re-invite me using [This Link](https://discord.com/oauth2/authorize?client_id=763418289689985035&scope=+applications.commands+bot&permissions=37084480) so I can get permission to create slash commands in this server.
-`
-			);
+`			);
 		message.reply({
 			embeds: [embed]
 		});
@@ -381,9 +382,17 @@ Volume : ${queue.volume}`
 client.on("interactionCreate", async (interaction) => {
 	if (interaction.isCommand()) {
 		try {
+			monitor.ping({message: `Interaction name: ${interaction.commandName}  \n Requested by: ${interaction.member} \n Requested in guild: ${interaction.guildId}`,
+				state: 'run'});
 			await client.scommands.get(interaction.commandName).execute(interaction);
+			intr = JSON.stringify(interaction)
+			monitor.ping({message: `Interaction successful: ${interaction.commandName}  \n Requested by: ${interaction.member} \n Raw JSON: ${intr}`,
+				state: 'complete'});
+
 		} catch (error) {
 			console.error(error);
+			monitor.ping({message: `Interaction ${interaction.commandName} failed \n Error: ${error} \n Raw JSON: ${intr}`,
+				state: 'fail'});
 		}
 	}
 });
