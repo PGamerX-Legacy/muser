@@ -2,10 +2,10 @@
 /*/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 									Importing packages and credentials
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
-const process = require('dotenv').config(); const fs = require("fs"); const db = require("quick.db"); const Discord = require("discord.js");
+require('dotenv').config(); const fs = require("fs"); const db = require("quick.db"); const Discord = require("discord.js");
 let token = process.env.BOTOKEN; let topGGToken = process.env.TOPGG_TOKEN; let topGGAuth = process.env.TOPGG_AUTH; let dbURI = process.env.DBURI;
 const express = require("express"); let timeouts = new Map();const {AutoPoster} = require("topgg-autoposter"); const {SoundCloudPlugin} = require("@distube/soundcloud");
-const Topgg = require("@top-gg/sdk");  const app = express(); const webhook = new Topgg.Webhook(topGGAuth);
+const Topgg = require("@top-gg/sdk");  const app = express(); const webhook = new Topgg.Webhook(topGGAuth); console.log("All packages imported. Credentials set.")
 /*/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 									All the ugly constants related to DJS
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
