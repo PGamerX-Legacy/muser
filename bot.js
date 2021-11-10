@@ -1,26 +1,20 @@
 /*/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 									Importing packages and credentials
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
-const process = require('dotenv').config()
-const fs = require("fs");
-const db = require("quick.db");
-const express = require("express");
-const {
-	SoundCloudPlugin
-} = require("@distube/soundcloud");
-const Discord = require("discord.js");
+const process = require('dotenv').config(); const fs = require("fs"); const db = require("quick.db"); const Discord = require("discord.js");
+let token = process.env.BOTOKEN; let topGGToken = process.env.TOPGG_TOKEN; let topGGAuth = process.env.TOPGG_AUTH;
+const express = require("express"); let timeouts = new Map();const {AutoPoster} = require("topgg-autoposter"); const {SoundCloudPlugin} = require("@distube/soundcloud");
+const Topgg = require("@top-gg/sdk"); const ap = AutoPoster(topGGToken, client); const app = express(); const webhook = new Topgg.Webhook(topGGAuth);
+/*/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+									All the ugly constants related to DJS
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 const userinfo = require("./models/user.js");
-
 const {
 	Client,
 	Collection,
 	Intents,
 	DiscordAPIError
 } = require("discord.js");
-const {
-	token,
-	topGGToken
-} = require("./config.json");
 const client = new Client({
 	allowedMentions: {
 		parse: ["users", "roles"],
@@ -34,17 +28,6 @@ const client = new Client({
 		Intents.FLAGS.GUILD_VOICE_STATES,
 	],
 });
-
-const {
-	AutoPoster
-} = require("topgg-autoposter");
-const Topgg = require("@top-gg/sdk");
-require('dotenv').config()
-const ap = AutoPoster(topGGToken, client);
-const app = express();
-const webhook = new Topgg.Webhook("bruhboomer");
-
-let timeouts = new Map();
 /*/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 									The code that makes voting work
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
@@ -104,7 +87,9 @@ app.post(
 ap.on("posted", () => {
 	console.log("Posted stats to Top.gg!");
 });
-
+/*/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+									This is (supposed to be) the command parser
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 client.scommands = new Collection();
 const commandFiles = fs
 	.readdirSync("./scommands")
