@@ -14,6 +14,7 @@ module.exports = {
 		monitor.ping({
 			state: 'ok',
 			message: `Ping = ${ping}`,
+			host: `${ping}`,
 			metrics: {
 				duration: `${ping}`,
 			}
