@@ -5,12 +5,12 @@ name: njsscan sarif
 
 on:
   push:
-    branches: [ main ]
+    branches: [ production ]
   pull_request:
     # The branches below must be a subset of the branches above
-    branches: [ main ]
+    branches: [ production ]
   schedule:
-    - cron: '43 13 * * 2'
+    - cron: '39 4 * * 3'
 
 jobs:
   njsscan:
