@@ -55,5 +55,4 @@ linter:
 # branches:
 #   exclude:
 #     - master
-#     - development
 #     - /^release-.*$/
