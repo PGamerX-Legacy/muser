@@ -3,3 +3,4 @@ node_modules
 .env.prod
 .env.dev
 config.json
+json.sqlite
