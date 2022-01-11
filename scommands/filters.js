@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
 const userinfo = require("../models/user.js");
-const db = require('quick.db')
+const db = require("quick.db");
 async function isVoter(user_id) {
   if (user_id) {
     const userdetail = await userinfo.findOne({
@@ -9,7 +9,7 @@ async function isVoter(user_id) {
     if (!userdetail) {
       return false;
     } else if (userdetail) {
-      return userdetail.voter === "yes";
+      return true;
     }
   }
 }
@@ -41,22 +41,20 @@ module.exports = {
     ),
   async execute(interaction) {
     const user_id = interaction.user.id;
-    const VOTER = (await userinfo.findOne({
-        UserID: user_id
-      }))?.voter || "no";
-    if (VOTER !== "yes") {
+    const VOTER = await isVoter(user_id);
+    if (!VOTER) {
       return await interaction.reply(
         `Filter command is only available for those who have voted for me (voting is free) or for those who have purchased the premium version. You can vote for me: <https://u.pgamerx.com/vote/muser>`
       );
     }
     let distube;
-    const is_premium = await db.get(`PREMIUM_${interaction.guild.id}`)
-    if(is_premium == "yes"){
-        distube = interaction.client.premium_distube
-    }else{
-        distube = interaction.client.distube
-    } 
-       let input = interaction.options.getString("filter");
+    const is_premium = await db.get(`PREMIUM_${interaction.guild.id}`);
+    if (is_premium == "yes") {
+      distube = interaction.client.premium_distube;
+    } else {
+      distube = interaction.client.distube;
+    }
+    let input = interaction.options.getString("filter");
     if (!interaction.member.voice.channel) {
       await interaction.reply({ content: "You are not in a voice channel!" });
       return;
