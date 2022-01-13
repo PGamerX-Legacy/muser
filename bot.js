@@ -4,36 +4,39 @@
 packages and credentials
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 require("dotenv").config();
+const dbURI = process.env.DBURI;
+const token = process.env.BOTOKEN;
+const logdnakey = process.env.LOGDNAKEY
+const topGGAuth = process.env.TOPGG_AUTH;
+const cronitorID = process.env.CRONITORID;
+const topGGToken = process.env.TOPGG_TOKEN;
+/////////////////////////////////////////////////////////
+const logdna = require('@logdna/logger');
+const options = {app: 'muser', level: 'debug'};
+const logger = logdna.createLogger(logdnakey, options);
+logger.log('Hello world!', 'info');
+const cronitor = require("cronitor")(cronitorID);
+const monitor = new cronitor.Monitor("Muser");
+/////////////////////////////////////////////////////////
 const fs = require("fs");
 const db = require("quick.db");
 const Discord = require("discord.js");
-const logdna = require('@logdna/logger');
+const { Client, Collection, Intents, DiscordAPIError } = require("discord.js");
 const { SoundCloudPlugin } = require("@distube/soundcloud");
-let logdnakey = process.env.LOGDNAKEY
-let token = process.env.BOTOKEN;
-let topGGToken = process.env.TOPGG_TOKEN;
-let topGGAuth = process.env.TOPGG_AUTH;
-let dbURI = process.env.DBURI;
-let cronitorID = process.env.CRONITORID;
-const options = {app: 'muser', level: 'debug'}
-const logger = logdna.createLogger(logdnakey, options);
-logger.log('Hello world!', 'info');
+/////////////////////////////////////////////////////////
 const express = require("express");
 let timeouts = new Map();
-const { AutoPoster } = require("topgg-autoposter");
-const cronitor = require("cronitor")(cronitorID);
-const monitor = new cronitor.Monitor("Muser");
-const Topgg = require("@top-gg/sdk");
 const app = express();
+const Topgg = require("@top-gg/sdk");
+const { AutoPoster } = require("topgg-autoposter");
 const webhook = new Topgg.Webhook(topGGAuth);
-logger.info("All packages imported. Credentials set.");
-console.log("All packages imported. Credentials set.");
+const ap = AutoPoster(topGGToken, client);
+logger.info("All packages imported. Credentials set."); console.log("All packages imported. Credentials set.");
 /*/////////////////////////////////////////////////////////////////////////////////////////////////////////////
                                                                         All the
 ugly constants related to DJS
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 const userinfo = require("./models/user.js");
-const { Client, Collection, Intents, DiscordAPIError } = require("discord.js");
 const client = new Client({
   allowedMentions: {
     parse: ["users", "roles"],
@@ -47,7 +50,6 @@ const client = new Client({
     Intents.FLAGS.GUILD_VOICE_STATES,
   ],
 });
-const ap = AutoPoster(topGGToken, client);
 /*/////////////////////////////////////////////////////////////////////////////////////////////////////////////
                                                                         The code
 that makes voting work
@@ -102,8 +104,7 @@ app.post(
   })
 );
 ap.on("posted", () => {
-  logger.info("Posted stats to Top.GG!");
-  console.log("Posted stats to Top.gg!");
+  logger.info("Posted stats to Top.GG!");console.log("Posted stats to Top.gg!");
 });
 /*/////////////////////////////////////////////////////////////////////////////////////////////////////////////
                                                                         This is
