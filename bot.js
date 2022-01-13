@@ -7,12 +7,17 @@ require("dotenv").config();
 const fs = require("fs");
 const db = require("quick.db");
 const Discord = require("discord.js");
+const logdna = require('@logdna/logger');
 const { SoundCloudPlugin } = require("@distube/soundcloud");
+let logdnakey = process.env.LOGDNAKEY
 let token = process.env.BOTOKEN;
 let topGGToken = process.env.TOPGG_TOKEN;
 let topGGAuth = process.env.TOPGG_AUTH;
 let dbURI = process.env.DBURI;
 let cronitorID = process.env.CRONITORID;
+const options = {app: 'muser', level: 'debug'}
+const logger = logdna.createLogger(logdnakey, options);
+logger.log('Hello world!', 'info');
 const express = require("express");
 let timeouts = new Map();
 const { AutoPoster } = require("topgg-autoposter");
@@ -21,6 +26,7 @@ const monitor = new cronitor.Monitor("Muser");
 const Topgg = require("@top-gg/sdk");
 const app = express();
 const webhook = new Topgg.Webhook(topGGAuth);
+logger.info("All packages imported. Credentials set.");
 console.log("All packages imported. Credentials set.");
 /*/////////////////////////////////////////////////////////////////////////////////////////////////////////////
                                                                         All the
@@ -94,6 +100,7 @@ app.post(
   })
 );
 ap.on("posted", () => {
+  logger.info("Posted stats to Top.GG!");
   console.log("Posted stats to Top.gg!");
 });
 /*/////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -172,6 +179,7 @@ console.log(`Premium guild boii`) if (!oldState.channel.members.size - 1)
          console.log("leaving")
      }, 120000);
 });
+////LMAO CODE VERSIONING BE LIKE
 */
 const mongoose = require("mongoose");
 mongoose.connect(dbURI, {
@@ -182,6 +190,7 @@ mongoose.connect(dbURI, {
                                                                                         Startup function
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 client.once("ready", () => {
+  logger.info("New bot instance: complete");
   monitor.ping({ message: `New instance`, state: "complete" });
   client.user.setPresence({
     activities: [
@@ -404,6 +413,8 @@ client.on("interactionCreate", async (interaction) => {
         state: "fail",
         series: interaction.id,
       });
+      logger.error(`Interaction ${interaction.commandName} failed \n Error: ${error} \n Raw JSON: ${intr}`)
+
     }
   }
 });
