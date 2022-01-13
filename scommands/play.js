@@ -1,5 +1,8 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const db = require('quick.db')
+const db = require('quick.db');
+const logdna = require('@logdna/logger');
+const options = {app: 'muser', level: 'debug'};
+const logger = logdna.createLogger(logdnakey, options);
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('play')
