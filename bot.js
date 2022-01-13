@@ -418,7 +418,7 @@ client.on("interactionCreate", async (interaction) => {
         state: "fail",
         series: interaction.id,
       });
-      logger.error(`Interaction ${interaction.commandName} failed \n Error: ${error} \n Raw JSON: ${intr}`)
+      ////logger.error(`Interaction ${interaction.commandName} failed \n Error: ${error} \n Raw JSON: ${intr}`)
 
     }
   }
