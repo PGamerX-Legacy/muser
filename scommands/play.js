@@ -1,9 +1,10 @@
 require("dotenv").config();
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const db = require('quick.db');
-const logdna = require('@logdna/logger');
-const options = {app: 'muser', level: 'debug'};
-const logger = logdna.createLogger(logdnakey, options);
+////const logdna = require('@logdna/logger');
+////const options = {app: 'muser', level: 'debug'};
+////const logger = logdna.createLogger(logdnakey, options);
+
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('play')
@@ -18,7 +19,7 @@ module.exports = {
         const is_premium = await db.get(`PREMIUM_${interaction.guild.id}`)
         console.log(is_premium)
         console.log("Playing in " + " " + interaction.guild.id)
-        logger.info("Playing in " + " " + interaction.guild.id)
+        ////logger.info("Playing in " + " " + interaction.guild.id)
         if(is_premium == "yes"){
             distube = interaction.client.premium_distube
         }else{
