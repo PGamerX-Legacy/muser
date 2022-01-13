@@ -30,7 +30,6 @@ const app = express();
 const Topgg = require("@top-gg/sdk");
 const { AutoPoster } = require("topgg-autoposter");
 const webhook = new Topgg.Webhook(topGGAuth);
-const ap = AutoPoster(topGGToken, client);
 logger.info("All packages imported. Credentials set."); console.log("All packages imported. Credentials set.");
 /*/////////////////////////////////////////////////////////////////////////////////////////////////////////////
                                                                         All the
@@ -50,6 +49,7 @@ const client = new Client({
     Intents.FLAGS.GUILD_VOICE_STATES,
   ],
 });
+const ap = AutoPoster(topGGToken, client);
 /*/////////////////////////////////////////////////////////////////////////////////////////////////////////////
                                                                         The code
 that makes voting work
