@@ -106,6 +106,7 @@ app.post(
 ap.on("posted", () => {
   logger.info("Posted stats to Top.GG!");console.log("Posted stats to Top.gg!");
 });
+logger.error("Vote bug still not fixed")
 /*/////////////////////////////////////////////////////////////////////////////////////////////////////////////
                                                                         This is
 (supposed to be) the command parser
