@@ -14,6 +14,7 @@ module.exports = {
         const is_premium = await db.get(`PREMIUM_${interaction.guild.id}`)
         console.log(is_premium)
         console.log("Playing in " + " " + interaction.guild.id)
+        logger.info("Playing in " + " " + interaction.guild.id)
         if(is_premium == "yes"){
             distube = interaction.client.premium_distube
         }else{

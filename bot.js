@@ -77,6 +77,7 @@ app.post(
       newData.save();
     }
     client.users.fetch(vote.user).then(async (user) => {
+      let user_info = await client.users.fetch(vote.user);
       const thanks2 = new Discord.MessageEmbed()
         .setColor("RANDOM")
         .setTitle("Thanks For Voting! <:love:736194392305434704>")
@@ -84,6 +85,7 @@ app.post(
           `Thanks for voting <:love:736194392305434704>:. You can now access "FILTER" commands in the bot for next 1 week, More perks soon! `
         );
       user.send({ embeds: [thanks2] });
+      logger.info(`${user_info.username}#${user_info.discriminator} voted`)
     });
     client.channels.fetch("783581253001150494").then(async (channel) => {
       let user_info = await client.users.fetch(vote.user);
@@ -218,9 +220,10 @@ bot discovers a new message
 client.on("messageCreate", async (message) => {
   if (message.content.startsWith(".eval")) {
     const owners_id = [
-      "587663056046391302",
-      "460511909435932672",
-      "707512325740953690",
+      "587663056046391302", /*PGamerX*/
+      "707512325740953690", /*Luckie*/
+      "460511909435932672", /*Peipr*/
+
     ];
     if (!owners_id.includes(message.author.id)) return;
     const args2 = message.content.split(" ").slice(1);
@@ -251,7 +254,7 @@ client.on("messageCreate", async (message) => {
 Hey there, I have just been completely renovated to be compatible with slash commands.
 
 > Cannot see my slash commands? or getting \`Invalid interaction\`?
-Please ask the Admin Team/Manager team or Owner of this server to re-invite me using [This Link](https://discord.com/oauth2/authorize?client_id=763418289689985035&scope=+applications.commands+bot&permissions=37084480) so I can get permission to create slash commands in this server.
+Please ask a server administrator to re-invite me using [This Link](https://discord.com/oauth2/authorize?client_id=763418289689985035&scope=+applications.commands+bot&permissions=37084480) so I can get permission to create slash commands in this server.
 `);
     message.reply({ embeds: [embed] });
   }
@@ -264,7 +267,7 @@ Please ask the Admin Team/Manager team or Owner of this server to re-invite me u
 client.distube
   .on("playSong", (queue, song) => {
     const embed = new Discord.MessageEmbed()
-      .setTitle(`Playing : ${song.name} - ${song.formattedDuration}`)
+      .setTitle(`Playing: ${song.name} - ${song.formattedDuration}`)
       .setDescription(
         `
 Filter : ${queue.filter || "Off"}
@@ -280,7 +283,7 @@ Volume : ${queue.volume}`
       )
       .addField(
         `Requested by`,
-        `${song.member.user.username}#${song.member.user.discriminator}`
+        `${interaction.member.user.username}#${interaction.member.user.discriminator}`
       )
       .setColor("RED")
       .setThumbnail(song.thumbnail);
