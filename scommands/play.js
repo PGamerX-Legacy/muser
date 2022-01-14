@@ -1,18 +1,11 @@
 require("dotenv").config();
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const db = require('quick.db');
-////const logdna = require('@logdna/logger');
-////const options = {app: 'muser', level: 'debug'};
-////const logger = logdna.createLogger(logdnakey, options);
-
-=======
 const db = require('quick.db')
 const logdna = require('@logdna/logger');
 let logdnakey = process.env.LOGDNAKEY
 const options = {app: 'muser', level: 'debug'}
 const logger = logdna.createLogger(logdnakey, options);
 logger.log('Hello world! I am the play command', 'info');
->>>>>>> Stashed changes
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('play')
