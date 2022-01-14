@@ -1,4 +1,6 @@
 // noinspection DuplicatedCode
+// noinspection JSUnusedAssignment
+
 /*/////////////////////////////////////////////////////////////////////////////////////////////////////////////
                                                                         Importing
 packages and credentials
@@ -13,8 +15,8 @@ const topGGToken = process.env.TOPGG_TOKEN;
 /////////////////////////////////////////////////////////
 const logdna = require('@logdna//////logger');
 const options = {app: 'muser', level: 'debug'};
-const /////logger = logdna.create/////logger(logdnakey, options);
-/////logger.log('Hello world!', 'info');
+const logger = logdna.createlogger(logdnakey, options);
+logger.log('Hello world!', 'info');
 const cronitor = require("cronitor")(cronitorID);
 const monitor = new cronitor.Monitor("Muser");
 /////////////////////////////////////////////////////////
@@ -87,7 +89,7 @@ app.post(
           `Thanks for voting <:love:736194392305434704>:. You can now access "FILTER" commands in the bot for next 1 week, More perks soon! `
         );
       user.send({ embeds: [thanks2] });
-      /////logger.info(`${user_info.username}#${user_info.discriminator} voted`)
+      logger.info(`${user_info.username}#${user_info.discriminator} voted`)
     });
     client.channels.fetch("783581253001150494").then(async (channel) => {
       let user_info = await client.users.fetch(vote.user);
@@ -104,9 +106,9 @@ app.post(
   })
 );
 ap.on("posted", () => {
-  /////logger.info("Posted stats to Top.GG!");console.log("Posted stats to Top.gg!");
+    logger.info("Posted stats to Top.GG!");console.log("Posted stats to Top.gg!");
 });
-/////logger.error("Vote bug still not fixed")
+logger.error("Vote bug still not fixed")
 /*/////////////////////////////////////////////////////////////////////////////////////////////////////////////
                                                                         This is
 (supposed to be) the command parser
@@ -418,7 +420,7 @@ client.on("interactionCreate", async (interaction) => {
         state: "fail",
         series: interaction.id,
       });
-      /////logger.error(`Interaction ${interaction.commandName} failed \n Error: ${error} \n Raw JSON: ${intr}`)
+      logger.error(`Interaction ${interaction.commandName} failed \n Error: ${error} \n Raw JSON: ${intr}`)
 
     }
   }
