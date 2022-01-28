@@ -30,7 +30,7 @@ let timeouts = new Map();
 const Topgg = require("@top-gg/sdk");
 const { AutoPoster } = require("topgg-autoposter");
 
-const api = new Topgg.Api(TOPGG_TOKEN)
+const api = new Topgg.Api(topGGToken)
 const ap = AutoPoster(topGGToken, client);
 logger.info("All packages imported. Credentials set."); console.log("All packages imported. Credentials set.");
 
