@@ -29,9 +29,11 @@ const { SoundCloudPlugin } = require("@distube/soundcloud");
 let timeouts = new Map();
 const Topgg = require("@top-gg/sdk");
 const { AutoPoster } = require("topgg-autoposter");
+
 const api = new Topgg.Api(TOPGG_TOKEN)
 const ap = AutoPoster(topGGToken, client);
-/////logger.info("All packages imported. Credentials set."); console.log("All packages imported. Credentials set.");
+logger.info("All packages imported. Credentials set."); console.log("All packages imported. Credentials set.");
+
 /*/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 | | | | | | | | | |  All the ugly constants related to DJS | | | | | | | | | | |  
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
@@ -48,6 +50,7 @@ const client = new Client({
     Intents.FLAGS.GUILD_VOICE_STATES,
   ],
 });
+const ap = AutoPoster(topGGToken, client);
 /*/////////////////////////////////////////////////////////////////////////////////////////////////////////////
                                                                         The code
 that makes voting work
