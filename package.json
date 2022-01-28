@@ -17,6 +17,7 @@
     "@dotenv/cli": "^0.6.0",
     "@logdna/logger": "^2.6.0",
     "@top-gg/sdk": "^3.1.2",
+    "blwebhooks": "^2.3.1",
     "cronitor": "^2.2.3",
     "dblapi.js": "^2.4.1",
     "discord.js": "^13.1.0-dev.1628640678.0266f28",

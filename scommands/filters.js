@@ -41,7 +41,7 @@ module.exports = {
     ),
   async execute(interaction) {
     const user_id = interaction.user.id;
-    const VOTER = await isVoter(user_id);
+    const VOTER = /*await isVoter(user_id)*/ true;
     if (!VOTER) {
       return await interaction.reply(
         `Filter command is only available for those who have voted for me (voting is free) or for those who have purchased the premium version. You can vote for me: <https://u.pgamerx.com/vote/muser>`

@@ -1,6 +1,3 @@
-// noinspection DuplicatedCode
-// noinspection JSUnusedAssignment
-
 /*/////////////////////////////////////////////////////////////////////////////////////////////////////////////
                                                                         Importing
 packages and credentials
@@ -25,6 +22,7 @@ const db = require("quick.db");
 const Discord = require("discord.js");
 const { Client, Collection, Intents, DiscordAPIError } = require("discord.js");
 const { SoundCloudPlugin } = require("@distube/soundcloud");
+const { WebhooksManager } = require("blwebhooks");
 /////////////////////////////////////////////////////////
 const express = require("express");
 let timeouts = new Map();
@@ -33,7 +31,7 @@ const Topgg = require("@top-gg/sdk");
 const { AutoPoster } = require("topgg-autoposter");
 const webhook = new Topgg.Webhook(topGGAuth);
 const ap = AutoPoster(topGGToken, client);
-/////logger.info("All packages imported. Credentials set."); console.log("All packages imported. Credentials set.");
+logger.info("All packages imported. Credentials set."); console.log("All packages imported. Credentials set.");
 /*/////////////////////////////////////////////////////////////////////////////////////////////////////////////
                                                                         All the
 ugly constants related to DJS
@@ -56,6 +54,17 @@ const client = new Client({
                                                                         The code
 that makes voting work
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+const voteClient = new WebhooksManager(client, 80);
+client.voteManager = voteClient;
+voteClient.extraProtection(true);
+voteClient.topggVoteHook("topgg", topGGToken, true);
+client.on("topgg-voted", async function (userID, botID, type) {
+  console.log(userID);
+});
+client.on("webhookError", async function (error) {
+  console.log(userID);
+});
+/*
 app.listen(2000);
 app.post(
   "/dblwebhook",
@@ -109,6 +118,8 @@ ap.on("posted", () => {
     logger.info("Posted stats to Top.GG!");console.log("Posted stats to Top.gg!");
 });
 logger.error("Vote bug still not fixed")
+LMAO CODE VERSIONING BE LIKE
+ */
 /*/////////////////////////////////////////////////////////////////////////////////////////////////////////////
                                                                         This is
 (supposed to be) the command parser
@@ -171,7 +182,6 @@ client.on("voiceStateUpdate", async (oldState, newState) => {
     }
   }
 });
-
 /*
 client.on('voiceStateUpdate',  async (oldState, newState) => {
   if (oldState.channelID !==  oldState.guild.me.voice.channelID ||
