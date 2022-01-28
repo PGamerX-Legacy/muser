@@ -12,7 +12,7 @@ const topGGAuth = process.env.TOPGG_AUTH;
 const cronitorID = process.env.CRONITORID;
 const topGGToken = process.env.TOPGG_TOKEN;
 /////////////////////////////////////////////////////////
-const logdna = require("@logdna//////logger");
+const logdna = require("logdna");
 const options = { app: "muser", level: "debug" };
 const logger = logdna.createlogger(logdnakey, options);
 logger.log("Hello world!", "info");
