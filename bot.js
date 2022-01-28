@@ -2,23 +2,23 @@
 // noinspection JSUnusedAssignment
 
 /*/////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                                                                        Importing
-packages and credentials
+                         Importing packages and credentials | | | | | | | | | | | | | | | | | |
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 require("dotenv").config();
 const dbURI = process.env.DBURI;
 const token = process.env.BOTOKEN;
-const logdnakey = process.env.LOGDNAKEY
+const logdnakey = process.env.LOGDNAKEY;
 const topGGAuth = process.env.TOPGG_AUTH;
 const cronitorID = process.env.CRONITORID;
 const topGGToken = process.env.TOPGG_TOKEN;
 /////////////////////////////////////////////////////////
-const logdna = require('@logdna//////logger');
-const options = {app: 'muser', level: 'debug'};
+const logdna = require("@logdna//////logger");
+const options = { app: "muser", level: "debug" };
 const logger = logdna.createlogger(logdnakey, options);
-logger.log('Hello world!', 'info');
+logger.log("Hello world!", "info");
 const cronitor = require("cronitor")(cronitorID);
 const monitor = new cronitor.Monitor("Muser");
+const userinfo = require("./models/user.js");
 /////////////////////////////////////////////////////////
 const fs = require("fs");
 const db = require("quick.db");
@@ -26,19 +26,15 @@ const Discord = require("discord.js");
 const { Client, Collection, Intents, DiscordAPIError } = require("discord.js");
 const { SoundCloudPlugin } = require("@distube/soundcloud");
 /////////////////////////////////////////////////////////
-const express = require("express");
 let timeouts = new Map();
-const app = express();
 const Topgg = require("@top-gg/sdk");
 const { AutoPoster } = require("topgg-autoposter");
-const webhook = new Topgg.Webhook(topGGAuth);
+const api = new Topgg.Api(TOPGG_TOKEN)
 const ap = AutoPoster(topGGToken, client);
 /////logger.info("All packages imported. Credentials set."); console.log("All packages imported. Credentials set.");
 /*/////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                                                                        All the
-ugly constants related to DJS
+| | | | | | | | | |  All the ugly constants related to DJS | | | | | | | | | | |  
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
-const userinfo = require("./models/user.js");
 const client = new Client({
   allowedMentions: {
     parse: ["users", "roles"],
@@ -56,62 +52,30 @@ const client = new Client({
                                                                         The code
 that makes voting work
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
-app.listen(2000);
-app.post(
-  "/dblwebhook",
-  webhook.listener(async (vote) => {
-    const userdetail = await userinfo.findOne({
-      UserID: vote.user,
-    });
 
-    if (!userdetail) {
-      let newData = new userinfo({
-        UserID: vote.user,
-        voter: "yes",
-      });
-      newData.save();
-    } else if (userdetail) {
-      await userinfo.findOneAndRemove({
-        UserID: vote.user,
-      });
-      let newData = new userinfo({
-        voter: "yes",
-        UserID: vote.user,
-      });
-      newData.save();
-    }
-    client.users.fetch(vote.user).then(async (user) => {
-      let user_info = await client.users.fetch(vote.user);
-      const thanks2 = new Discord.MessageEmbed()
-        .setColor("RANDOM")
-        .setTitle("Thanks For Voting! <:love:736194392305434704>")
-        .setDescription(
-          `Thanks for voting <:love:736194392305434704>:. You can now access "FILTER" commands in the bot for next 1 week, More perks soon! `
-        );
-      user.send({ embeds: [thanks2] });
-      logger.info(`${user_info.username}#${user_info.discriminator} voted`)
-    });
-    client.channels.fetch("783581253001150494").then(async (channel) => {
-      let user_info = await client.users.fetch(vote.user);
-      let embed = new Discord.MessageEmbed()
-        .setTitle(`New Voter <:love:736194392305434704>`)
-        .setDescription(
-          `${user_info.username}#${user_info.discriminator} just voted for [Muser](https://top.gg/bot/763418289689985035). You can vote too at [Top.GG](https://top.gg/bot/763418289689985035/vote)`
-        )
-        .setColor("RED")
-        .setFooter(`Created by PGamerX`);
-      channel.send({ embeds: [embed] });
-      // channel.send({ embeds: [embed] });
-    });
-  })
-);
 ap.on("posted", () => {
-    logger.info("Posted stats to Top.GG!");console.log("Posted stats to Top.gg!");
+  logger.info("Posted stats to Top.GG!");
+  console.log("Posted stats to Top.gg!");
 });
-logger.error("Vote bug still not fixed")
+
+/*/////////////////////////////////////////////////////////////
+| | | | | | | | | | Custom Functions | | | | | | | | | | | | 
+*/ /////////////////////////////////////////////////////////////
+async function isVoter(user_id) {
+  if (user_id) {
+    const userdetail = await userinfo.findOne({
+      UserID: user_id,
+    });
+    if (!userdetail) {
+      return false;
+    } else if (userdetail) {
+      return true;
+    }
+  }
+}
+
 /*/////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                                                                        This is
-(supposed to be) the command parser
+                                                                        This is (supposed to be) the command parser
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 client.scommands = new Collection();
 const commandFiles = fs
@@ -186,6 +150,7 @@ console.log(`Premium guild boii`) if (!oldState.channel.members.size - 1)
      }, 120000);
 });
 ////LMAO CODE VERSIONING BE LIKE
+// ^ Peipr adding comments be like ~PG
 */
 const mongoose = require("mongoose");
 mongoose.connect(dbURI, {
@@ -224,10 +189,9 @@ bot discovers a new message
 client.on("messageCreate", async (message) => {
   if (message.content.startsWith(".eval")) {
     const owners_id = [
-      "587663056046391302", /*PGamerX*/
-      "707512325740953690", /*Luckie*/
-      "460511909435932672", /*Peipr*/
-
+      "587663056046391302" /*PGamerX*/,
+      "707512325740953690" /*Luckie*/,
+      "460511909435932672" /*Peipr*/,
     ];
     if (!owners_id.includes(message.author.id)) return;
     const args2 = message.content.split(" ").slice(1);
@@ -399,6 +363,16 @@ Volume : ${queue.volume}`
 
 client.on("interactionCreate", async (interaction) => {
   if (interaction.isCommand()) {
+    if (!isVoter(interaction.user.id)) {
+      const bool = await api.hasVoted(interaction.user.id);
+      if (bool) {
+        const newData = new userinfo({
+          UserID: interaction.user.id,
+          voter: "yes",
+        });
+        newData.save();
+      }
+    }
     try {
       monitor.ping({
         message: `Interaction name: ${interaction.commandName}  \n Requested by: ${interaction.member} \n Requested in guild: ${interaction.guildId}`,
@@ -420,8 +394,9 @@ client.on("interactionCreate", async (interaction) => {
         state: "fail",
         series: interaction.id,
       });
-      logger.error(`Interaction ${interaction.commandName} failed \n Error: ${error} \n Raw JSON: ${intr}`)
-
+      logger.error(
+        `Interaction ${interaction.commandName} failed \n Error: ${error} \n Raw JSON: ${intr}`
+      );
     }
   }
 });
