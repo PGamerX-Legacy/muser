@@ -253,7 +253,7 @@ Volume : ${queue.volume}`
       )
       .addField(
         `Requested by`,
-        `${interaction.member.user.username}#${interaction.member.user.discriminator}`
+        `${song.member.user.username}#${song.member.user.discriminator}`
       )
       .setColor("RED")
       .setThumbnail(song.thumbnail);
