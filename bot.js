@@ -163,12 +163,19 @@ mongoose.connect(dbURI, {
                                                                                         Startup function
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 client.once("ready", () => {
-  /////logger.info("New bot instance: complete");
+  client.shard.fetchClientValues('guilds.cache.size')
+    .then(results => {
+    
+    client.shard
+	.broadcastEval(c => c.guilds.cache.reduce((acc, guild) => acc + guild.memberCount, 0))
+	.then(results2 => {
+
+ // logger.info("New bot instance: complete");
   monitor.ping({ message: `New instance`, state: "complete" });
   client.user.setPresence({
     activities: [
       {
-        name: `in ${client.guilds.cache.size} servers | Rip Groovy and Rythm o7`,
+        name: `with ${results2.reduce((acc, memberCount) => acc + memberCount, 0)} users | /help`,
       },
     ],
     status: "online",
@@ -177,12 +184,14 @@ client.once("ready", () => {
     client.user.setPresence({
       activities: [
         {
-          name: `in ${client.guilds.cache.size} servers | Rip Groovy and Rythm o7`,
+          name: `music in ${results.reduce((acc, guildCount) => acc + guildCount, 0)} servers | /help`,
         },
       ],
       status: "online",
     });
   }, 1800000);
+    })
+    })
 });
 /*/////////////////////////////////////////////////////////////////////////////////////////////////////////////
                                                                         When the
