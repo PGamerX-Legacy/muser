@@ -29,11 +29,8 @@ const { SoundCloudPlugin } = require("@distube/soundcloud");
 let timeouts = new Map();
 const Topgg = require("@top-gg/sdk");
 const { AutoPoster } = require("topgg-autoposter");
-
 const api = new Topgg.Api(topGGToken)
-const ap = AutoPoster(topGGToken, client);
 logger.info("All packages imported. Credentials set."); console.log("All packages imported. Credentials set.");
-
 /*/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 | | | | | | | | | |  All the ugly constants related to DJS | | | | | | | | | | |  
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
@@ -54,7 +51,7 @@ const client = new Client({
                                                                         The code
 that makes voting work
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
-
+const ap = AutoPoster(topGGToken, client);
 ap.on("posted", () => {
   logger.info("Posted stats to Top.GG!");
   console.log("Posted stats to Top.gg!");
