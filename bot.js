@@ -2,7 +2,8 @@
 // noinspection JSUnusedAssignment
 
 /*/////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                         Importing packages and credentials | | | | | | | | | | | | | | | | | |
+                         Importing packages and credentials | | | | | | | | | |
+| | | | | | | |
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 require("dotenv").config();
 const dbURI = process.env.DBURI;
@@ -13,7 +14,10 @@ const cronitorID = process.env.CRONITORID;
 const topGGToken = process.env.TOPGG_TOKEN;
 /////////////////////////////////////////////////////////
 const logdna = require("logdna");
-const options = { app: "muser", level: "debug" };
+const options = {
+  app: "muser",
+  level: "debug",
+};
 const logger = logdna.createLogger(logdnakey, options);
 logger.log("Hello world!", "info");
 const cronitor = require("cronitor")(cronitorID);
@@ -29,10 +33,14 @@ const { SoundCloudPlugin } = require("@distube/soundcloud");
 let timeouts = new Map();
 const Topgg = require("@top-gg/sdk");
 const { AutoPoster } = require("topgg-autoposter");
-const api = new Topgg.Api(topGGToken)
-logger.info("All packages imported. Credentials set."); console.log("All packages imported. Credentials set.");
+
+const api = new Topgg.Api(topGGToken);
+const ap = AutoPoster(topGGToken, client);
+logger.info("All packages imported. Credentials set.");
+console.log("All packages imported. Credentials set.");
+
 /*/////////////////////////////////////////////////////////////////////////////////////////////////////////////
-| | | | | | | | | |  All the ugly constants related to DJS | | | | | | | | | | |  
+| | | | | | | | | |  All the ugly constants related to DJS | | | | | | | | | | |
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 const client = new Client({
   allowedMentions: {
@@ -58,7 +66,7 @@ ap.on("posted", () => {
 });
 
 /*/////////////////////////////////////////////////////////////
-| | | | | | | | | | Custom Functions | | | | | | | | | | | | 
+| | | | | | | | | | Custom Functions | | | | | | | | | | | |
 */ /////////////////////////////////////////////////////////////
 async function isVoter(user_id) {
   if (user_id) {
@@ -74,7 +82,8 @@ async function isVoter(user_id) {
 }
 
 /*/////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                                                                        This is (supposed to be) the command parser
+                                                                        This is
+(supposed to be) the command parser
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 client.scommands = new Collection();
 const commandFiles = fs
@@ -162,26 +171,40 @@ mongoose.connect(dbURI, {
                                                                                         Startup function
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 client.once("ready", () => {
-  /////logger.info("New bot instance: complete");
-  monitor.ping({ message: `New instance`, state: "complete" });
-  client.user.setPresence({
-    activities: [
-      {
-        name: `in ${client.guilds.cache.size} servers | Rip Groovy and Rythm o7`,
-      },
-    ],
-    status: "online",
+  client.shard.fetchClientValues("guilds.cache.size").then((results) => {
+    client.shard
+      .broadcastEval((c) =>
+        c.guilds.cache.reduce((acc, guild) => acc + guild.memberCount, 0)
+      )
+      .then((results2) => {
+        // logger.info("New bot instance: complete");
+        monitor.ping({ message: `New instance`, state: "complete" });
+        client.user.setPresence({
+          activities: [
+            {
+              name: `with ${results2.reduce(
+                (acc, memberCount) => acc + memberCount,
+                0
+              )} users | /help`,
+            },
+          ],
+          status: "online",
+        });
+        setInterval(() => {
+          client.user.setPresence({
+            activities: [
+              {
+                name: `music in ${results.reduce(
+                  (acc, guildCount) => acc + guildCount,
+                  0
+                )} servers | /help`,
+              },
+            ],
+            status: "online",
+          });
+        }, 1800000);
+      });
   });
-  setInterval(() => {
-    client.user.setPresence({
-      activities: [
-        {
-          name: `in ${client.guilds.cache.size} servers | Rip Groovy and Rythm o7`,
-        },
-      ],
-      status: "online",
-    });
-  }, 1800000);
 });
 /*/////////////////////////////////////////////////////////////////////////////////////////////////////////////
                                                                         When the
@@ -219,7 +242,10 @@ client.on("messageCreate", async (message) => {
     }
   }
   if (message.author.bot) return;
-  if (message.mentions.has(client.user) && message.mentions.everyone === false) {
+  if (
+    message.mentions.has(client.user) &&
+    message.mentions.everyone === false
+  ) {
     const embed = new Discord.MessageEmbed().setTitle(
       `Only usable through Slash commands`
     ).setDescription(`
