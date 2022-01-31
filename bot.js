@@ -1,4 +1,4 @@
-// noinspection DuplicatedCode
+// noinspection DuplicatedCode,JSCheckFunctionSignatures
 // noinspection JSUnusedAssignment
 
 /*/////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -98,12 +98,13 @@ const distube = new DisTube(client, {
 });
 client.distube = distube;
 client.premium_distube = client.distube;
+// noinspection JSUnresolvedVariable
 client.on("voiceStateUpdate", async (oldState, newState) => {
   const queue = await client.distube.getQueue(oldState);
   if (!queue) return;
   const channel = await queue.textChannel;
   const premium = await db.get(`PREMIUM_${oldState.guild.id}`);
-  if (premium == "yes") return;
+  if (premium === "yes") return;
   if (
     oldState.channelID !== oldState.guild.me.voice.channelID ||
     newState.channel
@@ -152,6 +153,7 @@ console.log(`Premium guild boii`) if (!oldState.channel.members.size - 1)
 // ^ Peipr adding comments be like ~PG
 */
 const mongoose = require("mongoose");
+// noinspection JSCheckFunctionSignatures
 mongoose.connect(dbURI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -207,14 +209,17 @@ client.on("messageCreate", async (message) => {
       const code = args2.join(" ");
       let evaled = eval(code);
 
+      // noinspection JSUnresolvedFunction
       message.channel.send(`\`\`\`js\n${clean(evaled)}\`\`\``);
+      // noinspection JSUnresolvedFunction
       message.channel.send(clean(evaled), { code: "xl" });
     } catch (err) {
+      // noinspection JSUnresolvedFunction
       message.channel.send(`\`ERROR\` \`\`\`xl\n${clean(err)}\n\`\`\``);
     }
   }
   if (message.author.bot) return;
-  if (message.mentions.has(client.user) && message.mentions.everyone == false) {
+  if (message.mentions.has(client.user) && message.mentions.everyone === false) {
     const embed = new Discord.MessageEmbed().setTitle(
       `Only usable through Slash commands`
     ).setDescription(`
@@ -231,6 +236,7 @@ Please ask a server administrator to re-invite me using [This Link](https://disc
 // \`${queue.filters || "Off"}\` | Loop: \`${queue.repeatMode ? queue.repeatMode
 // == 2 ? "All Queue" : "This Song" : "Off"}\` | Autoplay: \`${queue.autoplay ?
 // "On" : "Off"}\``;
+// noinspection JSUnresolvedVariable
 client.distube
   .on("playSong", (queue, song) => {
     const embed = new Discord.MessageEmbed()
@@ -240,7 +246,7 @@ client.distube
 Filter : ${queue.filter || "Off"}
 Loop :  ${
           queue.repeatMode
-            ? queue.repeatMode == 2
+            ? queue.repeatMode === 2
               ? "All Queue"
               : "This Song"
             : "Off"
@@ -264,7 +270,7 @@ Volume : ${queue.volume}`
 Filter : ${queue.filter || "Off"}
 Loop :  ${
           queue.repeatMode
-            ? queue.repeatMode == 2
+            ? queue.repeatMode === 2
               ? "All Queue"
               : "This Song"
             : "Off"
@@ -291,7 +297,7 @@ Volume : ${queue.volume}`
 Filter : ${queue.filter || "Off"}
 Loop :  ${
           queue.repeatMode
-            ? queue.repeatMode == 2
+            ? queue.repeatMode === 2
               ? "All Queue"
               : "This Song"
             : "Off"
@@ -317,7 +323,7 @@ Volume : ${queue.volume}`
 Filter : ${queue.filter || "Off"}
 Loop :  ${
           queue.repeatMode
-            ? queue.repeatMode == 2
+            ? queue.repeatMode === 2
               ? "All Queue"
               : "This Song"
             : "Off"
@@ -336,6 +342,7 @@ Volume : ${queue.volume}`
   // DisTubeOptions.searchSongs = true
   .on("searchResult", (result) => {
     let i = 0;
+    // noinspection JSUnresolvedVariable
     queue.textChannel.send(
       `**Choose an option from below**\n${result
         .map(
@@ -373,13 +380,16 @@ client.on("interactionCreate", async (interaction) => {
       }
     }
     try {
+      // noinspection JSUnresolvedVariable
       monitor.ping({
         message: `Interaction name: ${interaction.commandName}  \n Requested by: ${interaction.member} \n Requested in guild: ${interaction.guildId}`,
         state: "run",
         series: interaction.id,
       });
+      // noinspection JSUnresolvedVariable
       await client.scommands.get(interaction.commandName).execute(interaction);
       let intr = JSON.stringify(interaction);
+      // noinspection JSUnresolvedVariable
       monitor.ping({
         message: `Interaction successful: ${interaction.commandName}  \n Requested by: ${interaction.member} \n Raw JSON: ${intr}`,
         state: "complete",
@@ -388,11 +398,13 @@ client.on("interactionCreate", async (interaction) => {
     } catch (error) {
       console.error(error);
       let intr = JSON.stringify(interaction);
+      // noinspection JSUnresolvedVariable
       monitor.ping({
         message: `Interaction ${interaction.commandName} failed \n Error: ${error} \n Raw JSON: ${intr}`,
         state: "fail",
         series: interaction.id,
       });
+      // noinspection JSUnresolvedVariable
       logger.error(
         `Interaction ${interaction.commandName} failed \n Error: ${error} \n Raw JSON: ${intr}`
       );

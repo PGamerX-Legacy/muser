@@ -1,3 +1,5 @@
+// noinspection JSUnresolvedFunction
+
 require("dotenv").config();
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const db = require('quick.db')
@@ -21,7 +23,7 @@ module.exports = {
         console.log(is_premium)
         console.log("Playing in " + " " + interaction.guild.id)
         ////logger.info("Playing in " + " " + interaction.guild.id)
-        if(is_premium == "yes"){
+        if(is_premium === "yes"){
             distube = interaction.client.premium_distube
         }else{
             distube = interaction.client.distube
