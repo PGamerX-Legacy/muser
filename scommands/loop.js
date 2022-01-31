@@ -17,7 +17,7 @@ module.exports = {
 	async execute(interaction) {
         let distube;
         const is_premium = await db.get(`PREMIUM_${interaction.guild.id}`)
-        if(is_premium == "yes"){
+        if(is_premium === "yes"){
             distube = interaction.client.premium_distube
         }else{
             distube = interaction.client.distube
@@ -29,11 +29,11 @@ module.exports = {
         }    
       
     let mode;
-    if(input == "song"){
+    if(input === "song"){
         mode = 1
-    }else if(input == "queue"){
+    }else if(input === "queue"){
         mode = 2 
-    }else if(input == "off"){
+    }else if(input === "off"){
        mode = 0
     }
     const queue = distube.getQueue(interaction)

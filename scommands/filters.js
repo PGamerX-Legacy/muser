@@ -49,7 +49,7 @@ module.exports = {
     }
     let distube;
     const is_premium = await db.get(`PREMIUM_${interaction.guild.id}`);
-    if (is_premium == "yes") {
+    if (is_premium === "yes") {
       distube = interaction.client.premium_distube;
     } else {
       distube = interaction.client.distube;
@@ -64,7 +64,7 @@ module.exports = {
     if (!queue) {
       await interaction.reply(`No song is playing!`);
     }
-    if (input == "disable") {
+    if (input === "disable") {
       await interaction.reply(`🎵 Disabled all the filters from the queue`);
       await distube.setFilter(queue, false);
       return;

@@ -70,7 +70,7 @@ npm install
 
 5. Create a [Pull Request](https://github.com/PGamerX-Legacy/muser/compare)
 
-If you are new to github, see [how to contribute](https://github.com/firstcontributions/first-contributions)
+If you are new to GitHub, see [how to contribute](https://github.com/firstcontributions/first-contributions)
 
 ## License
 
