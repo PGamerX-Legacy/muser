@@ -1,6 +1,6 @@
-const mongoose = require('mongoose');
+import mongo from 'mongoose';
 
-const userinfo = new mongoose.Schema({
+const userinfo = new mongo.Schema({
     prefix: {
         type: String
     },
@@ -14,4 +14,4 @@ const userinfo = new mongoose.Schema({
     UserID: String
 });
 
-const MessageModel = module.exports = mongoose.model('users_muser', userinfo);
+module.exports = mongo.model('users_muser', userinfo);

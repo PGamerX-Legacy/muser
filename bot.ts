@@ -29,8 +29,7 @@ const { SoundCloudPlugin } = require("@distube/soundcloud");
 let timeouts = new Map();
 const Topgg = require("@top-gg/sdk");
 const { AutoPoster } = require("topgg-autoposter");
-const api = new Topgg.Api(TOPGG_TOKEN)
-const ap = AutoPoster(topGGToken, client);
+const api = new Topgg.Api(topGGToken)
 /////logger.info("All packages imported. Credentials set."); console.log("All packages imported. Credentials set.");
 /*/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 | | | | | | | | | |  All the ugly constants related to DJS | | | | | | | | | | |  
@@ -48,6 +47,8 @@ const client = new Client({
     Intents.FLAGS.GUILD_VOICE_STATES,
   ],
 });
+
+const ap = AutoPoster(topGGToken, client);
 /*/////////////////////////////////////////////////////////////////////////////////////////////////////////////
                                                                         The code
 that makes voting work
@@ -61,7 +62,7 @@ ap.on("posted", () => {
 /*/////////////////////////////////////////////////////////////
 | | | | | | | | | | Custom Functions | | | | | | | | | | | | 
 */ /////////////////////////////////////////////////////////////
-async function isVoter(user_id) {
+async function isVoter(user_id: any) {
   if (user_id) {
     const userdetail = await userinfo.findOne({
       UserID: user_id,
@@ -80,7 +81,7 @@ async function isVoter(user_id) {
 client.scommands = new Collection();
 const commandFiles = fs
   .readdirSync("./scommands")
-  .filter((file) => file.endsWith(".js"));
+  .filter((file: string) => file.endsWith(".js"));
 for (const file of commandFiles) {
   const command = require(`./scommands/${file}`);
   client.scommands.set(command.data.name, command);
@@ -99,7 +100,7 @@ const distube = new DisTube(client, {
 });
 client.distube = distube;
 client.premium_distube = client.distube;
-client.on("voiceStateUpdate", async (oldState, newState) => {
+client.on("voiceStateUpdate", async (oldState: { guild: { id: any; me: { voice: { channelID: any; }; }; }; channelID: any; channel: { members: { size: number; }; }; }, newState: { channel: any; }) => {
   const queue = await client.distube.getQueue(oldState);
   if (!queue) return;
   const channel = await queue.textChannel;
@@ -186,7 +187,7 @@ client.once("ready", () => {
                                                                         When the
 bot discovers a new message
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
-client.on("messageCreate", async (message) => {
+client.on("messageCreate", async (message: { content: string; author: { id: string; bot: any; }; channel: { send: (arg0: string, arg1: { code: string; } | undefined) => void; }; mentions: { has: (arg0: any) => any; everyone: boolean; }; reply: (arg0: { embeds: any[]; }) => void; }) => {
   if (message.content.startsWith(".eval")) {
     const owners_id = [
       "587663056046391302" /*PGamerX*/,
@@ -196,7 +197,7 @@ client.on("messageCreate", async (message) => {
     if (!owners_id.includes(message.author.id)) return;
     const args2 = message.content.split(" ").slice(1);
 
-    const clean = (text) => {
+    const clean = (text: string) => {
       if (typeof text === "string")
         return text
           .replace(/`/g, "`" + String.fromCharCode(8203))
@@ -208,10 +209,9 @@ client.on("messageCreate", async (message) => {
       const code = args2.join(" ");
       let evaled = eval(code);
 
-      message.channel.send(`\`\`\`js\n${clean(evaled)}\`\`\``);
-      message.channel.send(clean(evaled), { code: "xl" });
+      message.channel.send(clean(evaled), { code: "js" });
     } catch (err) {
-      message.channel.send(`\`ERROR\` \`\`\`xl\n${clean(err)}\n\`\`\``);
+      message.channel.send(clean(err), { code: "js" });
     }
   }
   if (message.author.bot) return;
@@ -233,7 +233,7 @@ Please ask a server administrator to re-invite me using [This Link](https://disc
 // == 2 ? "All Queue" : "This Song" : "Off"}\` | Autoplay: \`${queue.autoplay ?
 // "On" : "Off"}\``;
 client.distube
-  .on("playSong", (queue, song) => {
+  .on("playSong", (queue: { filter: any; repeatMode: number; autoplay: any; volume: any; textChannel: { send: (arg0: { embeds: any[]; }) => void; }; }, song: { name: any; formattedDuration: any; thumbnail: any; member: any; }) => {
     const embed = new Discord.MessageEmbed()
       .setTitle(`Playing: ${song.name} - ${song.formattedDuration}`)
       .setDescription(
@@ -251,13 +251,13 @@ Volume : ${queue.volume}`
       )
       .addField(
         `Requested by`,
-        `${interaction.member.user.username}#${interaction.member.user.discriminator}`
+        `${song.member.user.username}#${song.member.user.discriminator}`
       )
       .setColor("RED")
       .setThumbnail(song.thumbnail);
     queue.textChannel.send({ embeds: [embed] });
   })
-  .on("addSong", (queue, song) => {
+  .on("addSong", (queue: { filter: any; repeatMode: number; autoplay: any; volume: any; textChannel: { send: (arg0: { embeds: any[]; }) => void; }; }, song: { name: any; formattedDuration: any; member: { user: { username: any; discriminator: any; }; }; thumbnail: any; }) => {
     const embed = new Discord.MessageEmbed()
       .setTitle(`Added : ${song.name} - ${song.formattedDuration}`)
       .setDescription(
@@ -282,7 +282,7 @@ Volume : ${queue.volume}`
     queue.textChannel.send({ embeds: [embed] });
   })
 
-  .on("playList", (queue, playlist, song) => {
+  .on("playList", (queue: { filter: any; repeatMode: number; autoplay: any; volume: any; textChannel: { send: (arg0: { embeds: any[]; }) => void; }; }, playlist: { name: any; songs: string | any[]; }, song: { member: { user: { username: any; discriminator: any; }; }; thumbnail: any; }) => {
     const embed = new Discord.MessageEmbed()
       .setTitle(
         `Playlist Playing: ${playlist.name} - ${playlist.songs.length} songs`
@@ -308,7 +308,7 @@ Volume : ${queue.volume}`
       .setThumbnail(song.thumbnail);
     queue.textChannel.send({ embeds: [embed] });
   })
-  .on("addList", (queue, playlist) => {
+  .on("addList", (queue: { filter: any; repeatMode: number; autoplay: any; volume: any; textChannel: { send: (arg0: { embeds: any[]; }) => void; }; }, playlist: { name: any; songs: string | any[]; member: { user: { username: any; discriminator: any; }; }; thumbnail: any; }) => {
     const embed = new Discord.MessageEmbed()
       .setTitle(
         `Playlist Added : ${playlist.name} - ${playlist.songs.length} songs`
@@ -335,7 +335,7 @@ Volume : ${queue.volume}`
     queue.textChannel.send({ embeds: [embed] });
   })
   // DisTubeOptions.searchSongs = true
-  .on("searchResult", (result) => {
+ /* .on("searchResult", (result) => {
     let i = 0;
     queue.textChannel.send(
       `**Choose an option from below**\n${result
@@ -345,12 +345,13 @@ Volume : ${queue.volume}`
         .join("\n")}\n*Enter anything else or wait 60 seconds to cancel*`
     );
   })
+  */
   // DisTubeOptions.searchSongs = true
-  .on("searchCancel", (message) => queue.textChannel.send(`Searching canceled`))
-  .on("error", (channel, error) =>
+ // .on("searchCancel", (message) => queue.textChannel.send(`Searching canceled`))
+  .on("error", (channel: { send: (arg0: string) => any; }, error: any) =>
     channel.send(` An error encountered: ${error}`)
   )
-  .on("empty", (queue) => {
+  .on("empty", (queue: { textChannel: { send: (arg0: { embeds: any[]; }) => void; }; }) => {
     const embed = new Discord.MessageEmbed()
       .setTitle(`Channel empty`)
       .setDescription(
@@ -361,7 +362,7 @@ Volume : ${queue.volume}`
     queue.textChannel.send({ embeds: [embed] });
   });
 
-client.on("interactionCreate", async (interaction) => {
+client.on("interactionCreate", async (interaction: { isCommand: () => any; user: { id: any; }; commandName: any; member: any; guildId: any; id: any; }) => {
   if (interaction.isCommand()) {
     if (!isVoter(interaction.user.id)) {
       const bool = await api.hasVoted(interaction.user.id);
