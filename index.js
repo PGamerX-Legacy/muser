@@ -50,7 +50,7 @@ app.post(
     await newData.save();
 
     manager.broadcastEval(
-      (client, context) => {
+      async (client, context) => {
         const vote2 = context.vote; // "value"
         const user = await client.users.fetch(vote2.user.toString());
         user.send(
