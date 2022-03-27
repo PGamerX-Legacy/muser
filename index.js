@@ -13,6 +13,15 @@ const webhook = new Topgg.Webhook("MuserIsAnAmazingBot");
 
 const { ShardingManager } = require("discord.js");
 
+const dbURI = process.env.DBURI;
+
+const mongoose = require("mongoose");
+// noinspection JSCheckFunctionSignatures
+mongoose.connect(dbURI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+
 const manager = new ShardingManager("./bot.js", { token: token });
 
 const userinfo = require("./models/user.js");
