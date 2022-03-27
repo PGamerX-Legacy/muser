@@ -37,9 +37,10 @@ app.post(
     // Trying to eval now
     manager.broadcastEval(
       `
-     const user = await this.users.fetch("${vote.user}")
+     const user = this.users.fetch("${vote.user}").then(user => {
      user.send("Thank you so much for voting! You can now access the filter command!");
-    `,
+     })
+     `,
       { shard: 0 }
     );
     // You can also throw an error to the listener callback in order to resend the webhook after a few seconds
