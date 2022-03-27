@@ -17,4 +17,4 @@ const userinfo = new mongoose.Schema({
   createdAt: { type: Date, expires: "1w", default: Date.now },
 });
 
-const MessageModel = (module.exports = mongoose.model("users_muser", userinfo));
+const MessageModel = (module.exports = mongoose.model("muser_userinfo", userinfo));
