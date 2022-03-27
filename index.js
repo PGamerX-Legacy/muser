@@ -1,8 +1,12 @@
 require("dotenv").config();
 const token = process.env.BOTOKEN;
 
+const topGGToken = process.env.TOPGG_TOKEN;
+
 const Topgg = require("@top-gg/sdk");
 const express = require("express");
+
+const { AutoPoster } = require("topgg-autoposter");
 
 const app = express();
 const webhook = new Topgg.Webhook("MuserIsAnAmazingBot");
@@ -15,9 +19,12 @@ const userinfo = require("./models/user.js");
 
 manager.on("shardCreate", (shard) => console.log(`Launched shard ${shard.id}`));
 
-// Get the client from the manager
+const ap = AutoPoster(topGGToken, manager);
+ap.on("posted", () => {
+  // logger.info("Posted stats to Top.GG!");
+  console.log("Posted stats to Top.gg!");
+});
 
-manager.spawn();
 
 app.post(
   "/muserTOPGG",
@@ -47,4 +54,7 @@ app.post(
   })
 );
 
-app.listen(0911);
+app.listen(9876);
+
+manager.spawn();
+
