@@ -49,16 +49,20 @@ app.post(
     });
     await newData.save();
 
-    // Trying to eval now
     manager.broadcastEval(
-      async (client) => {
-        const user = await client.users.fetch(vote.user.toString());
+      (client, context) => {
+        const vote2 = context.vote; // "value"
+        const user = await client.users.fetch(vote2.user.toString());
         user.send(
           "Thank you so much for voting! You can now access the filter command!"
         );
       },
-      { shard: 0 }
+      {
+        context: { vote: vote },
+        shard: 0,
+      }
     );
+    // Trying to eval now
     // You can also throw an error to the listener callback in order to resend the webhook after a few seconds
   })
 );
