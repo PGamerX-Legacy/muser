@@ -59,18 +59,7 @@ that makes voting work
 /*/////////////////////////////////////////////////////////////
 | | | | | | | | | | Custom Functions | | | | | | | | | | | |
 */ /////////////////////////////////////////////////////////////
-async function isVoter(user_id) {
-  if (user_id) {
-    const userdetail = await userinfo.findOne({
-      UserID: user_id,
-    });
-    if (!userdetail) {
-      return false;
-    } else if (userdetail) {
-      return true;
-    }
-  }
-}
+
 
 /*/////////////////////////////////////////////////////////////////////////////////////////////////////////////
                                                                         This is
@@ -383,16 +372,6 @@ Volume : ${queue.volume}`
 
 client.on("interactionCreate", async (interaction) => {
   if (interaction.isCommand()) {
-    if (!isVoter(interaction.user.id)) {
-      const bool = await api.hasVoted(interaction.user.id);
-      if (bool) {
-        const newData = new userinfo({
-          UserID: interaction.user.id,
-          voter: "yes",
-        });
-        newData.save();
-      }
-    }
     try {
       // noinspection JSUnresolvedVariable
       monitor.ping({
