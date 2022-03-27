@@ -21,7 +21,7 @@ manager.spawn();
 
 app.post(
   "/muserTOPGG",
-  webhook.listener((vote) => {
+  webhook.listener(async (vote) => {
     console.log(vote);
     // vote will be your vote object, e.g
     console.log(
