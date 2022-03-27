@@ -154,10 +154,7 @@ console.log(`Premium guild boii`) if (!oldState.channel.members.size - 1)
 */
 const mongoose = require("mongoose");
 // noinspection JSCheckFunctionSignatures
-mongoose.connect(dbURI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+
 /*/////////////////////////////////////////////////////////////////////////////////////////////////////////////
                                                                                         Startup function
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
