@@ -1,20 +1,21 @@
 const mongoose = require("mongoose");
 
 const userinfo = new mongoose.Schema({
-  UserID: {
-    type: String || Number,
-    required: true,
+  UserID : {
+    type : String || Number,
+    required : true,
   },
-  prefix: {
-    type: String,
+  prefix : {
+    type : String,
   },
-  voter: {
-    type: Boolean,
+  voter : {
+    type : Boolean,
   },
-  premium: {
-    type: String,
+  premium : {
+    type : String,
   },
-  createdAt: { type: Date, expires: "1w", default: Date.now },
+  createdAt : {type : Date, expires : "1w", default : Date.now},
 });
 
-const MessageModel = (module.exports = mongoose.model("muser_userinfo", userinfo));
+const MessageModel =
+    (module.exports = mongoose.model("muser_userinfo", userinfo));
