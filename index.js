@@ -34,7 +34,6 @@ ap.on("posted", () => {
   console.log("Posted stats to Top.gg!");
 });
 
-
 app.post(
   "/muserTOPGG",
   webhook.listener(async (vote) => {
@@ -45,18 +44,19 @@ app.post(
     );
 
     const newData = new userinfo({
-      UserID: "${vote.user}",
+      UserID: vote.user.toString(),
       voter: true,
     });
     await newData.save();
 
     // Trying to eval now
     manager.broadcastEval(
-      `
-     const user = this.users.fetch("${vote.user}").then(user => {
-     user.send("Thank you so much for voting! You can now access the filter command!");
-     })
-     `,
+      async (client) => {
+        const user = await client.users.fetch(vote.user.toString());
+        user.send(
+          "Thank you so much for voting! You can now access the filter command!"
+        );
+      },
       { shard: 0 }
     );
     // You can also throw an error to the listener callback in order to resend the webhook after a few seconds
@@ -66,4 +66,3 @@ app.post(
 app.listen(9876);
 
 manager.spawn();
-
