@@ -142,6 +142,13 @@ console.log(`Premium guild boii`) if (!oldState.channel.members.size - 1)
 // ^ Peipr adding comments be like ~PG
 */
 const mongoose = require("mongoose");
+const dbURI = process.env.DBURI;
+
+// noinspection JSCheckFunctionSignatures
+mongoose.connect(dbURI).then(whatever => {
+console.log("owo did it work")
+})
+
 // noinspection JSCheckFunctionSignatures
 
 /*/////////////////////////////////////////////////////////////////////////////////////////////////////////////
