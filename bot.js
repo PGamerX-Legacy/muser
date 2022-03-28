@@ -6,7 +6,7 @@
 | | | | | | | |
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 require("dotenv").config();
-const dbURI = process.env.DBURI;
+
 const token = process.env.BOTOKEN;
 const logdnakey = process.env.LOGDNAKEY;
 const topGGAuth = process.env.TOPGG_AUTH;
