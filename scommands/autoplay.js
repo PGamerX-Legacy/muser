@@ -9,7 +9,8 @@ module.exports = {
     .setName("autoplay")
     .setDescription("Toggles autoplay feature in Muser"),
   async execute(interaction) {
-    const data = await userinfo.findOne({ UserID: user_id });
+   const user_id = interaction.user.id 
+   const data = await userinfo.findOne({ UserID: user_id });
     if (!data) {
       const embed = new MessageEmbed()
         .setTitle("Forbidden")

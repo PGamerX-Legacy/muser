@@ -17,10 +17,9 @@ const dbURI = process.env.DBURI;
 
 const mongoose = require("mongoose");
 // noinspection JSCheckFunctionSignatures
-mongoose.connect(dbURI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose.connect(dbURI).then(whatever => {
+console.log("owo did it work")
+})
 
 const manager = new ShardingManager("./bot.js", { token: token });
 
