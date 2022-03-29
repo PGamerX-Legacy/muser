@@ -22,7 +22,10 @@ module.exports = {
           name: "Vote for the bot!",
           value:
             "[Vote for Muser on top.gg](https://top.gg/bot/763418289689985035/vote) ",
-        });
+
+      }, {
+        name: "Don't want to vote? Get premium for just $2.99!",
+      });
 
       return interaction.reply({
         embeds: [embed],
