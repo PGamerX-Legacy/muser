@@ -35,13 +35,8 @@ module.exports = {
         embeds: [embed],
       });
     } else if (data.voter == true) {
-      let distube;
-      const is_premium = await db.get(`PREMIUM_${interaction.guild.id}`);
-      if (is_premium === "yes") {
-        distube = interaction.client.premium_distube;
-      } else {
-        distube = interaction.client.distube;
-      }
+      const distube = interaction.client.distube;
+
       if (!interaction.member.voice.channel) {
         await interaction.reply({ content: "You are not in a voice channel!" });
         return;

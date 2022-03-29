@@ -60,7 +60,6 @@ that makes voting work
 | | | | | | | | | | Custom Functions | | | | | | | | | | | |
 */ /////////////////////////////////////////////////////////////
 
-
 /*/////////////////////////////////////////////////////////////////////////////////////////////////////////////
                                                                         This is
 (supposed to be) the command parser
@@ -86,7 +85,6 @@ const distube = new DisTube(client, {
   plugins: [new SpotifyPlugin(), new SoundCloudPlugin()],
 });
 client.distube = distube;
-client.premium_distube = client.distube;
 // noinspection JSUnresolvedVariable
 client.on("voiceStateUpdate", async (oldState, newState) => {
   const queue = await client.distube.getQueue(oldState);
@@ -113,7 +111,7 @@ client.on("voiceStateUpdate", async (oldState, newState) => {
           const embed = new Discord.MessageEmbed()
             .setTitle(`Channel empty`)
             .setDescription(
-              `If you have premium, then I won't leave the VC, but if you don't then I will because no one is there in the VC. [Check out Premium](https://muser.pgamerx.com/premium)`
+              `If you have premium, then I won't leave the VC, but if you don't then I will because no one is there in the VC. [Check out Premium for just 2.99$](https://muser.pgamerx.com/premium)`
             )
             .setColor("RED");
           await channel.send({ embeds: [embed] });
@@ -145,9 +143,9 @@ const mongoose = require("mongoose");
 const dbURI = process.env.DBURI;
 
 // noinspection JSCheckFunctionSignatures
-mongoose.connect(dbURI).then(whatever => {
-console.log("owo did it work")
-})
+mongoose.connect(dbURI).then((whatever) => {
+  console.log("owo did it work");
+});
 
 // noinspection JSCheckFunctionSignatures
 
