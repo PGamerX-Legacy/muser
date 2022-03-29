@@ -143,9 +143,14 @@ const mongoose = require("mongoose");
 const dbURI = process.env.DBURI;
 
 // noinspection JSCheckFunctionSignatures
-mongoose.connect(dbURI).then((whatever) => {
-  console.log("owo did it work");
-});
+mongoose
+  .connect(dbURI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => {
+    console.log("owo did it work");
+  });
 
 // noinspection JSCheckFunctionSignatures
 
