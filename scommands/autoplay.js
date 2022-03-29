@@ -9,8 +9,8 @@ module.exports = {
     .setName("autoplay")
     .setDescription("Toggles autoplay feature in Muser"),
   async execute(interaction) {
-   const user_id = interaction.user.id 
-   const data = await userinfo.findOne({ UserID: user_id });
+    const user_id = interaction.user.id;
+    const data = await userinfo.findOne({ UserID: user_id });
     if (!data) {
       const embed = new MessageEmbed()
         .setTitle("Forbidden")
@@ -18,14 +18,18 @@ module.exports = {
           "You are not allowed to use this command! Only people who have **voted** for the bot within the last week can use this command! (**Voting is free**)"
         )
         .setColor("RED")
-        .addFields({
-          name: "Vote for the bot!",
-          value:
-            "[Vote for Muser on top.gg](https://top.gg/bot/763418289689985035/vote) ",
-
-      }, {
-        name: "Don't want to vote? Get premium for just $2.99!",
-      });
+        .addFields(
+          {
+            name: "Vote for the bot!",
+            value:
+              "[Vote for Muser on top.gg](https://top.gg/bot/763418289689985035/vote) ",
+          },
+          {
+            name: "Don't want to vote? Get premium for just $2.99!",
+            value:
+              "[Get premium for $2.99/M](https://muser.pgamerx.com/premium)",
+          }
+        );
 
       return interaction.reply({
         embeds: [embed],
